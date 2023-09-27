@@ -15,7 +15,7 @@ Con toda la información más reciente y fresca posible :)
 
 ## Authors
 
-- [@ivanosquis13](https://www.github.com/ivanosquis13)
+- [@ivanosquis13](https://www.twitter.com/ivanosquis13)
 
 
 ## FAQ
