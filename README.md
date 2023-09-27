@@ -1,15 +1,34 @@
-## Getting Started with dollar-app
 
-First, run the development server:
+# Bolivarium-conversor
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Aplicación web encargada de hacer conversiones de dólares a bolívares y viceversa. Además de poder ver las diferentes tasas que hay en el país.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Con toda la información más reciente y fresca posible :)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Tech Stack
+
+**Client:** React, NextJS, TailwindCSS, Typescript.
+
+**Server:** NextJS
+
+
+## Authors
+
+- [@ivanosquis13](https://www.twitter.com/ivanosquis13)
+
+
+## FAQ
+
+#### ¿Que API uso?
+
+La maravillosa persona que creo esta API para poder consumir la data viene del repositorio:
+[api-pydolarvenezuela](https://github.com/fcoagz/api-pydolarvenezuela)
+
+**denle estrellas**, muy buen proyecto!
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
