@@ -4,3 +4,7 @@ coverage/
 .next/
 .vscode/
 build/
+
+tailwind.config.js
+postcss.config.js
+next.config.js

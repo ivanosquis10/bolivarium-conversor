@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { EnvelopeOpenIcon, DoubleArrowRightIcon, DoubleArrowLeftIcon } from '@radix-ui/react-icons'
+import { DoubleArrowRightIcon, DoubleArrowLeftIcon } from '@radix-ui/react-icons'
 
 interface Props {
   children?: React.ReactNode
