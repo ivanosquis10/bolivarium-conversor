@@ -27,30 +27,29 @@ export const useAppStore = create<State>()((set, get) => ({
   tab: 'bs',
   loading: false,
   getResult: async (cantidad, tasa) => {
-    // const tab = get().tab
+    const tab = get().tab
     try {
-      console.log(cantidad, tasa)
       // set({ loading: true })
 
-      // if (tab === 'bs') {
-      //   const resultConversion = Number(cantidad) / Number(tasa)
-      //   return set({
-      //     result: {
-      //       conversion: resultConversion,
-      //       currency: 'usd'
-      //     }
-      //   })
-      // }
+      if (tab === 'bs') {
+        const resultConversion = Number(cantidad) / Number(tasa)
+        return set({
+          result: {
+            conversion: resultConversion,
+            currency: 'usd'
+          }
+        })
+      }
 
-      // if (tab === 'usd') {
-      //   const resultConversion = Number(tasa) * Number(cantidad)
-      //   return set({
-      //     result: {
-      //       conversion: resultConversion,
-      //       currency: 'bs'
-      //     }
-      //   })
-      // }
+      if (tab === 'usd') {
+        const resultConversion = Number(tasa) * Number(cantidad)
+        return set({
+          result: {
+            conversion: resultConversion,
+            currency: 'bs'
+          }
+        })
+      }
 
       // set({ loading: true })
 
@@ -78,9 +77,9 @@ export const useAppStore = create<State>()((set, get) => ({
       // }
     } catch (error) {
       console.log(error)
-      set({ loading: false })
+      // set({ loading: false })
     } finally {
-      set({ loading: false })
+      // set({ loading: false })
     }
   },
   setUserValues: (data) => {
