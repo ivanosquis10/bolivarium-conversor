@@ -2,12 +2,6 @@ import { SectionCard } from '@/components/section-card/section-card'
 
 const SECTIONS_DATA = [
   {
-    title: 'Monederos Digitales',
-    description: 'Aqui encontrarás la información sobre el dolar en Venezuela y los monederos digitales más populares en Venezuela.',
-    url: 'monederos_electronicos',
-    badge: ['PayPal', 'Skrill', 'Zinli']
-  },
-  {
     title: 'Dolar Promedio',
     description: 'Aqui encontrarás la información sobre el dolar en Venezuela y dolar promedio de diferentes fuentes.',
     url: 'dolar_promedio',
@@ -18,6 +12,12 @@ const SECTIONS_DATA = [
     description: 'Aqui encontrarás la información sobre el dolar en Venezuela en los bancos oficiales de Venezuela.',
     url: 'bcv_oficial',
     badge: ['Venezuela', 'Bancamiga', 'Mercantil']
+  },
+  {
+    title: 'Monederos Digitales',
+    description: 'Aqui encontrarás la información sobre el dolar en Venezuela y los monederos digitales más populares en Venezuela.',
+    url: 'monederos_electronicos',
+    badge: ['PayPal', 'Skrill', 'Zinli']
   },
   {
     title: 'Otras Paginas',

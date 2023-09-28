@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 'use client'
 
 import { Button } from '@/components/ui/button'
@@ -17,44 +18,11 @@ import {
   TabsList,
   TabsTrigger
 } from '@/components/ui/tabs'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
 import type { Expression, Monitor } from '@/interfaces'
 import { useAppStore } from '@/store/appStore'
-
+import { SelectCoin } from '@/components'
 interface Props {
   coins: Monitor[]
-}
-
-export function SelectCoin({ coins }: Props) {
-  const { setUserValues, userValues } = useAppStore()
-
-  return (
-    <Select defaultValue={userValues.tasa} onValueChange={(data: string) => setUserValues({ ...userValues, tasa: data })} >
-      <SelectTrigger id='tasa' className="w-full">
-        <SelectValue placeholder="Selecciona la moneda de tu preferencia" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup className='font-medium h-[200px] scroll-smooth'>
-          <SelectLabel>Tasas</SelectLabel>
-          {
-            coins.map((coin) => (
-              <SelectItem key={coin.title} value={coin.title} >
-                {`${coin.title} - ${coin.price} bs`}
-              </SelectItem>
-            ))
-          }
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  )
 }
 
 export function SectionTabs({ coins }: Props) {
@@ -62,6 +30,8 @@ export function SectionTabs({ coins }: Props) {
 
   const { setUserValues, userValues, setTab, tab } = useAppStore()
   const getResult = useAppStore((state) => state.getResult)
+
+  console.log(userValues)
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -75,13 +45,13 @@ export function SectionTabs({ coins }: Props) {
     }
 
     // necesitamos convertir la "tasa" a un string valido para la api y quitar los acentos de las palabras
-    const tasa = userValues.tasa.replaceAll(' ', '_').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-
-    await getResult(userValues.cantidad, tasa, tab)
+    // const title = userValues.tasa.replaceAll(' ', '_').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    // console.log(userValues.tasa, userValues.cantidad)
+    await getResult(userValues.cantidad, userValues.tasa)
   }
 
   return (
-    <Tabs defaultValue="bs" className="w-full" onValueChange={(data) => setTab(data as Expression)}>
+    <Tabs defaultValue={tab} className="w-full" onValueChange={(data) => setTab(data as Expression)}>
       <TabsList className="grid w-full grid-cols-2 bg-zinc-200 dark:bg-zinc-800">
         <TabsTrigger value="bs">Bolivares a USD</TabsTrigger>
         <TabsTrigger value="usd">USD a Bolivares</TabsTrigger>
