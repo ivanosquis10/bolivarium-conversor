@@ -26,12 +26,8 @@ interface Props {
 }
 
 export function SectionTabs({ coins }: Props) {
-  // const [tab, setTab] = useState<Expression>('bs')
-
   const { setUserValues, userValues, setTab, tab } = useAppStore()
   const getResult = useAppStore((state) => state.getResult)
-
-  console.log(userValues)
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
