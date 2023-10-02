@@ -11,9 +11,9 @@ export default async function Page() {
   }))
 
   return (
-    <section className='px-4 mx-auto mt-5 max-w-7xl md:px-0'>
-      <div className='grid gap-5 md:grid-cols-2 md:grid-rows-2 h-[550px]'>
-          <div className='h-full row-span-2 p-2 space-y-2 overflow-y-auto border rounded dark:border-zinc-800'>
+    <section className='px-4 mx-auto my-5 max-w-7xl md:px-2 lg:px-0'>
+      <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
+        <div className='p-2 space-y-2 overflow-y-auto border rounded dark:border-zinc-800 h-[320px] lg:h-[550px]'>
           {
             monitors.map((monitor, index) => (
               <MonitorCard
@@ -22,12 +22,17 @@ export default async function Page() {
               />
             ))
           }
+        </div>
+
+        <div className='lg:grid lg:grid-rows-3'>
+          <div className='lg:row-span-3'>
+            <SectionTabs />
+
           </div>
+          <div>
+            <ConvertResult />
 
-        <div className='h-full row-span-2'>
-          <SectionTabs />
-
-          <ConvertResult />
+          </div>
         </div>
 
       </div>

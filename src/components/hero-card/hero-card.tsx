@@ -5,7 +5,6 @@ import { Card } from '../ui/card'
 export const HeroCard = () => {
   return (
     <Card
-      key="1"
       className="w-[500px] mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3"
     >
       <div className="md:flex">
@@ -94,7 +93,6 @@ export const HeroCard = () => {
                 <span className="ml-1 text-blue-500">487</span>
               </div>
             </div>
-            <div className="text-gray-400 dark:text-gray-300">7:22 AM · Aug 22, 2023</div>
           </div>
         </div>
       </div>
