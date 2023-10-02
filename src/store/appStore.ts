@@ -1,89 +1,49 @@
-// import { getConvertBsToDolar, getConvertDolarToBS } from '@/services/data'
 import { create } from 'zustand'
 import type { Expression } from '@/interfaces'
 
-export interface UserValuesProps {
-  tasa: string
-  cantidad: number
-}
-
 interface State {
-  userValues: { tasa: string, cantidad: number }
+  tasa: number
+  cantidad: number
   result: { conversion: string | number, currency: Expression }
   tab: Expression
-  loading: boolean
-  getResult: (cantidad: string | number, title?: string, tasa?: string) => Promise<void>
-  setUserValues: (data: UserValuesProps) => void
+  getResult: (cantidad: string | number, tasa: string | number) => void
+  getTasa: (tasa: number) => void
+  getCantidad: (tasa: number) => void
   setTab: (data: Expression) => void
   resetResult: () => void
+  resetFields: () => void
 }
 
 export const useAppStore = create<State>()((set, get) => ({
-  userValues: { tasa: '', cantidad: 0 },
+  tasa: 0,
+  cantidad: 0,
   result: {
     conversion: '',
     currency: 'usd'
   },
   tab: 'bs',
-  loading: false,
-  getResult: async (cantidad, tasa) => {
+  getResult: (cantidad, tasa) => {
     const tab = get().tab
-    try {
-      // set({ loading: true })
 
-      if (tab === 'bs') {
-        const resultConversion = Number(cantidad) / Number(tasa)
-        return set({
-          result: {
-            conversion: resultConversion,
-            currency: 'usd'
-          }
-        })
-      }
-
-      if (tab === 'usd') {
-        const resultConversion = Number(tasa) * Number(cantidad)
-        return set({
-          result: {
-            conversion: resultConversion,
-            currency: 'bs'
-          }
-        })
-      }
-
-      // set({ loading: true })
-
-      // if (tab === 'bs') {
-      //   const conversion = Number()
-      //   const resultConversion = await getConvertBsToDolar(cantidad, title)
-      //   console.log(resultConversion)
-      //   return set({
-      //     result: {
-      //       conversion: resultConversion.value_to_dollar,
-      //       currency: 'usd'
-      //     }
-      //   })
-      // }
-
-      // if (tab === 'usd') {
-      //   const resultConversion = await getConvertDolarToBS(cantidad, title)
-      //   console.log(resultConversion)
-      //   set({
-      //     result: {
-      //       conversion: result.value_to_bs,
-      //       currency: 'bs'
-      //     }
-      //   })
-      // }
-    } catch (error) {
-      console.log(error)
-      // set({ loading: false })
-    } finally {
-      // set({ loading: false })
+    if (tab === 'bs') {
+      const resultConversion = Number(cantidad) / Number(tasa)
+      return set({
+        result: {
+          conversion: resultConversion,
+          currency: 'usd'
+        }
+      })
     }
-  },
-  setUserValues: (data) => {
-    set((state) => ({ userValues: data }))
+
+    if (tab === 'usd') {
+      const resultConversion = Number(tasa) * Number(cantidad)
+      return set({
+        result: {
+          conversion: resultConversion,
+          currency: 'bs'
+        }
+      })
+    }
   },
   setTab: (data) => {
     set((state) => ({ tab: data }))
@@ -95,5 +55,17 @@ export const useAppStore = create<State>()((set, get) => ({
         currency: 'usd'
       }
     }))
+  },
+  resetFields: () => {
+    set((state) => ({
+      tasa: 0,
+      cantidad: 0
+    }))
+  },
+  getTasa: (tasa) => {
+    set((state) => ({ tasa }))
+  },
+  getCantidad: (cantidad) => {
+    set((state) => ({ cantidad }))
   }
 }))

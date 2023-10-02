@@ -1,6 +1,24 @@
-import type { Result } from '@/interfaces'
+const BASE_URL = 'https://pydolarvenezuela-api.vercel.app'
 
-const BASE_URL = 'https://pydolarvenezuela-api.vercel.app/'
+export type Result = {
+  monitors: Record<string, Monitor>
+}
+
+export type Monitor = {
+  last_update: string
+  price: number
+  price_old: number
+  title: string
+  type: Type
+}
+
+export type Type = 'monitor' | 'bank'
+
+export const getFullData = async () => {
+  const response = await fetch(`${BASE_URL}/api/v1/dollar/`)
+  const data = await response.json()
+  return data as Result
+}
 
 /*
   casos de la api
@@ -29,24 +47,60 @@ const BASE_URL = 'https://pydolarvenezuela-api.vercel.app/'
 
 */
 
-// export const getDollarToday = async () => {
-//   const response = await fetch(`${BASE_URL}api`)
-//   const data = await response.json()
+/*
+  Hubo cambios en la api, ahora este es el nuevo formato
+
+  -> full data: https://pydolarvenezuela-api.vercel.app/api/v1/dollar/
+
+  -> specific data: https://pydolarvenezuela-api.vercel.app/api/v1/dollar/unit/enparalelovzla
+
+*/
+// export const getConvertBsToDolar = async (value: string | number, coin: string) => {
+//   const response = await fetch(`${BASE_URL}api/v1/dollar/td/${value}/${coin}`)
+//   const data = await response.json() as Result
 //   return data
 // }
 
-export const getConvertBsToDolar = async (value: string | number, coin: string) => {
-  const response = await fetch(`${BASE_URL}api/v1/dollar/td/${value}/${coin}`)
-  const data = await response.json() as Result
-  return data
-}
+// interface ResultBS {
+//   value_to_bs: number
+// }
 
-interface ResultBS {
-  value_to_bs: number
-}
+// export const getConvertDolarToBS = async (value: string | number, coin: string) => {
+//   const response = await fetch(`${BASE_URL}api/v1/dollar/tb/${value}/${coin}`)
+//   const data = await response.json() as ResultBS
+//   return data
+// }
 
-export const getConvertDolarToBS = async (value: string | number, coin: string) => {
-  const response = await fetch(`${BASE_URL}api/v1/dollar/tb/${value}/${coin}`)
-  const data = await response.json() as ResultBS
-  return data
-}
+/*
+  otra api que encontre:
+
+  array de 9 items, con la informacion mas reciente
+
+  -> https://exchange.vcoud.com/coins/latest?type=bolivar&base=usd
+
+    repuesta:     [
+                    {
+                    "_id": "5d5dfaa6639f395c7fd11d16",
+                    "name": "Dólar Today",
+                    "symbol": "VDT",
+                    "rank": 1,
+                    "type": "bolivar",
+                    "currency": "VES",
+                    "price": 35.72,
+                    "priceOld": 35720000,
+                    "price24h": 35.72,
+                    "positiveVotes": 0,
+                    "negativeVotes": 0,
+                    "icon": "https://vcoud.nyc3.digitaloceanspaces.com/criptodolar/divisas/vdt.png",
+                    "slug": "dolartoday",
+                    "createdAt": "2019-08-22T02:15:02.920Z",
+                    "updatedAt": "2023-09-30T05:00:00.012Z",
+                    "nameBase": "Dólar Americano"
+                    }
+                  ]
+
+    Para obtener la data especifica se utiliza la propiedad "slug" y la siguiente url:
+
+    -> https://exchange.vcoud.com/coins/dolartoday?gap=1w&base=usd
+
+*/

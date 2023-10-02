@@ -10,7 +10,7 @@ interface Props {
 
 export default async function Page({ params: { id } }: Props) {
   const res = await fetch(`https://pydolarvenezuela-api.vercel.app/api/v1/dollar/${id}`, {
-    next: { revalidate: 5400 }
+    next: { revalidate: 500 }
   })
   const data = await res.json() as Record<string, Monitor>
 

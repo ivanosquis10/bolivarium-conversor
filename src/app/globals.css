@@ -123,3 +123,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Ancho de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background-color: #1a1a1a;
+  border-radius: 4px;
+}
+
+/* Color del scroll */
+::-webkit-scrollbar-thumb {
+  background-color: #757575;
+  border-radius: 4px;
+}

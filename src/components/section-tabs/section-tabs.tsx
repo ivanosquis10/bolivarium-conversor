@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 'use client'
 
+import { useAppStore } from '@/store/appStore'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -18,32 +18,25 @@ import {
   TabsList,
   TabsTrigger
 } from '@/components/ui/tabs'
-import type { Expression, Monitor } from '@/interfaces'
-import { useAppStore } from '@/store/appStore'
-import { SelectCoin } from '@/components'
-interface Props {
-  coins: Monitor[]
-}
+import type { Expression } from '@/interfaces'
 
-export function SectionTabs({ coins }: Props) {
-  const { setUserValues, userValues, setTab, tab } = useAppStore()
-  const getResult = useAppStore((state) => state.getResult)
+export function SectionTabs() {
+  const { setTab, tab, getResult } = useAppStore()
+  const tasa = useAppStore((state) => state.tasa)
+  const cantidad = useAppStore((state) => state.cantidad)
+
+  const getCantidad = useAppStore((state) => state.getCantidad)
+  const geTasa = useAppStore((state) => state.getTasa)
+  const resetFields = useAppStore((state) => state.resetFields)
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if ([userValues.tasa, userValues.cantidad].includes('')) {
-      return alert('Por favor, llena todos los campos')
-    }
-
-    if (userValues.cantidad <= 0) {
+    if (cantidad <= 0 || tasa <= 0) {
       return alert('Por favor, ingresa una cantidad valida')
     }
 
-    // necesitamos convertir la "tasa" a un string valido para la api y quitar los acentos de las palabras
-    // const title = userValues.tasa.replaceAll(' ', '_').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    // console.log(userValues.tasa, userValues.cantidad)
-    await getResult(userValues.cantidad, userValues.tasa)
+    return getResult(cantidad, tasa)
   }
 
   return (
@@ -64,27 +57,39 @@ export function SectionTabs({ coins }: Props) {
             <CardContent className="space-y-2">
               <div className="space-y-1">
                 <Label htmlFor="tasa">Seleciona tu tasa:</Label>
-                <SelectCoin coins={coins} />
+                <Input
+                  type='number'
+                  id="tasa"
+                  defaultValue={tasa}
+                  value={tasa}
+                  onChange={(e) => geTasa(Number(e.target.value))}
+                  placeholder='Escoge o escribe la tasa a convertir'
+                  // min={1}
+                />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="cantidad">Cantidad en Bolívares:</Label>
                 <Input
                   type='number'
                   id="cantidad"
-                  defaultValue={userValues.cantidad}
-                  value={userValues.cantidad}
-                  onChange={(e) => setUserValues({ ...userValues, cantidad: Number(e.target.value) })}
+                  defaultValue={cantidad}
+                  value={cantidad}
+                  onChange={(e) => getCantidad(Number(e.target.value))}
+                  placeholder='Ingresa tu cantidad en bs'
+                  // min={1}
                 />
               </div>
             </CardContent>
-            <CardFooter>
-              <Button >Convertir cantidad</Button>
+            <CardFooter className='flex items-center justify-between'>
+              <Button type='submit'>Convertir cantidad</Button>
+              <Button type='button' onClick={resetFields}>Limpiar campos</Button>
+
             </CardFooter>
           </form>
         </Card>
       </TabsContent>
 
-      <TabsContent value="usd" className=''>
+      <TabsContent value="usd" className='' >
         <Card className='dark:bg-zinc-800/30'>
           <CardHeader>
             <CardTitle>Convierte de Dólares a Bolívares</CardTitle>
@@ -96,16 +101,70 @@ export function SectionTabs({ coins }: Props) {
             <CardContent className="space-y-2">
               <div className="space-y-1">
                 <Label htmlFor="tasa">Seleciona tu tasa:</Label>
-                <SelectCoin coins={coins} />
+                <Input
+                  type='number'
+                  id="tasa"
+                  defaultValue={tasa}
+                  value={tasa}
+                  onChange={(e) => geTasa(Number(e.target.value))}
+                  placeholder='Escoge o escribe la tasa a convertir'
+                  // min={1}
+
+                />
               </div>
               <div className="space-y-1">
-                <Label htmlFor="cantidad">Cantidad en Dolarés</Label>
+                <Label htmlFor="cantidad">Cantidad en Dolares:</Label>
                 <Input
                   type='number'
                   id="cantidad"
-                  defaultValue={userValues.cantidad}
-                  value={userValues.cantidad}
-                  onChange={(e) => setUserValues({ ...userValues, cantidad: Number(e.target.value) })}
+                  defaultValue={cantidad}
+                  value={cantidad}
+                  onChange={(e) => getCantidad(Number(e.target.value))}
+                  placeholder='Ingresa tu cantidad en USD'
+                  // min={1}
+                />
+              </div>
+            </CardContent>
+            <CardFooter className='flex items-center justify-between'>
+              <Button type='submit'>Convertir cantidad</Button>
+              <Button type='button' onClick={resetFields}>Limpiar campos</Button>
+            </CardFooter>
+          </form>
+        </Card>
+      </TabsContent>
+
+      {/* <TabsContent value="usd" className=''>
+        <Card className='dark:bg-zinc-800/30'>
+          <CardHeader>
+            <CardTitle>Convierte de Dólares a Bolívares</CardTitle>
+            <CardDescription>
+              Escribe tu cantidad, escoge a que tasa quieres convertir y listo!
+            </CardDescription>
+          </CardHeader>
+          <form onSubmit={submitHandler}>
+            <CardContent className="space-y-2">
+              <div className="space-y-1">
+                <Label htmlFor="tasa">Seleciona tu tasa:</Label>
+                <Input
+                  type='number'
+                  id="tasa"
+                  defaultValue={tasa}
+                  value={tasa}
+                  onChange={(e) => geTasa(Number(e.target.value))}
+                  placeholder='Escoge o escribe la tasa a convertir'
+                  min={1}
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="cantidad">Cantidad en Dolares:</Label>
+                <Input
+                  type='number'
+                  id="cantidad"
+                  defaultValue={cantidad}
+                  value={cantidad}
+                  onChange={(e) => getCantidad(Number(e.target.value))}
+                  placeholder='Ingresa tu cantidad en USD'
+                  min={1}
                 />
               </div>
             </CardContent>
@@ -114,7 +173,7 @@ export function SectionTabs({ coins }: Props) {
             </CardFooter>
           </form>
         </Card>
-      </TabsContent>
+      </TabsContent> */}
 
     </Tabs>
   )
