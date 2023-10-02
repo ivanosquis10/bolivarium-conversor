@@ -81,8 +81,8 @@ export function SectionTabs() {
               </div>
             </CardContent>
             <CardFooter className='flex items-center justify-between'>
-              <Button type='submit'>Convertir cantidad</Button>
-              <Button type='button' onClick={resetFields}>Limpiar campos</Button>
+              <Button type='submit' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm'>Convertir cantidad</Button>
+              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={resetFields}>Limpiar campos</Button>
 
             </CardFooter>
           </form>
@@ -132,49 +132,6 @@ export function SectionTabs() {
           </form>
         </Card>
       </TabsContent>
-
-      {/* <TabsContent value="usd" className=''>
-        <Card className='dark:bg-zinc-800/30'>
-          <CardHeader>
-            <CardTitle>Convierte de Dólares a Bolívares</CardTitle>
-            <CardDescription>
-              Escribe tu cantidad, escoge a que tasa quieres convertir y listo!
-            </CardDescription>
-          </CardHeader>
-          <form onSubmit={submitHandler}>
-            <CardContent className="space-y-2">
-              <div className="space-y-1">
-                <Label htmlFor="tasa">Seleciona tu tasa:</Label>
-                <Input
-                  type='number'
-                  id="tasa"
-                  defaultValue={tasa}
-                  value={tasa}
-                  onChange={(e) => geTasa(Number(e.target.value))}
-                  placeholder='Escoge o escribe la tasa a convertir'
-                  min={1}
-                />
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="cantidad">Cantidad en Dolares:</Label>
-                <Input
-                  type='number'
-                  id="cantidad"
-                  defaultValue={cantidad}
-                  value={cantidad}
-                  onChange={(e) => getCantidad(Number(e.target.value))}
-                  placeholder='Ingresa tu cantidad en USD'
-                  min={1}
-                />
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button type='submit'>Convertir cantidad</Button>
-            </CardFooter>
-          </form>
-        </Card>
-      </TabsContent> */}
-
     </Tabs>
   )
 }

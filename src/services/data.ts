@@ -15,7 +15,11 @@ export type Monitor = {
 export type Type = 'monitor' | 'bank'
 
 export const getFullData = async () => {
-  const response = await fetch(`${BASE_URL}/api/v1/dollar/`)
+  const response = await fetch(`${BASE_URL}/api/v1/dollar/`, {
+    next: {
+      revalidate: 3200
+    }
+  })
   const data = await response.json()
   return data as Result
 }
