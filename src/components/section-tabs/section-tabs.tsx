@@ -126,8 +126,8 @@ export function SectionTabs() {
               </div>
             </CardContent>
             <CardFooter className='flex items-center justify-between'>
-              <Button type='submit'>Convertir cantidad</Button>
-              <Button type='button' onClick={resetFields}>Limpiar campos</Button>
+              <Button type='submit' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm'>Convertir cantidad</Button>
+              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={resetFields}>Limpiar campos</Button>
             </CardFooter>
           </form>
         </Card>
