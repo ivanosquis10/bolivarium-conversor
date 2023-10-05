@@ -1,6 +1,5 @@
-import { ConvertResult, SectionTabs } from '@/components'
-import { MonitorCard } from '@/components/monitor-card/monitor-card'
-import { getFullData } from '@/services/data'
+import { getFullData } from '@/services'
+import { ConvertResult, SectionTabs, MonitorCard } from '@/components'
 
 export default async function Page() {
   const data = await getFullData()
@@ -27,16 +26,12 @@ export default async function Page() {
         <div className='lg:grid lg:grid-rows-3'>
           <div className='lg:row-span-3'>
             <SectionTabs />
-
           </div>
           <div>
             <ConvertResult />
-
           </div>
         </div>
-
       </div>
-
     </section>
   )
 }

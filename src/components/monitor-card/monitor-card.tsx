@@ -1,9 +1,10 @@
 'use client'
 
-import type { Monitor } from '@/services/data'
-import { Card, CardTitle, CardDescription } from '../ui/card'
 import { useAppStore } from '@/store/appStore'
-import { formatMoney } from '@/utils'
+
+import { Card, CardTitle, CardDescription } from '../ui/card'
+import { formatMoney } from '@/lib/utils'
+import type { Monitor } from '@/services'
 
 type Props = {
   monitor: Monitor

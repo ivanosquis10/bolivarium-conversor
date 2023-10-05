@@ -1,23 +1,3 @@
-// export type Dollar = {
-//   datetime: Datetime
-//   monitors: Record<string, Monitor>
-// }
-
-// export type Datetime = {
-//   date: string
-//   time: string
-// }
-
-// export type Monitor = {
-//   change: string
-//   color: Color
-//   last_update: string
-//   percent: string
-//   price: string
-//   symbol: symbol
-//   title: string
-// }
-
 export interface CardSection {
   title: string
   description: string
