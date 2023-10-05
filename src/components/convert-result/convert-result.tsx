@@ -1,7 +1,7 @@
 'use client'
 
 import { useAppStore } from '@/store/appStore'
-import { formatMoney } from '@/utils'
+import { formatMoney } from '@/lib/utils'
 import {
   Card,
   CardContent,
