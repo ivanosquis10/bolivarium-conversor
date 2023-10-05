@@ -1,5 +1,11 @@
 import { getFullData } from '@/services'
 import { ConvertResult, SectionTabs, MonitorCard } from '@/components'
+import type { Metadata } from 'next/types'
+
+export const metadata: Metadata = {
+  title: 'Bolivarium | Conversor',
+  description: 'El portal de las divisas donde podrás ver la información del dólar en Venezuela de una forma estructurada y precisa, además de poder usar el convertidor para hacer conversiones de bolívares a dólares y viceversa.'
+}
 
 export default async function Page() {
   const data = await getFullData()

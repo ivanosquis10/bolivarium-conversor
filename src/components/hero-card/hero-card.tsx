@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 
+import { TwitterLogoIcon } from '@radix-ui/react-icons'
+
 export const HeroCard = () => {
   return (
     <Card
@@ -22,11 +24,7 @@ export const HeroCard = () => {
                 <div className="text-gray-400 dark:text-gray-300">@Ivanosquis13</div>
               </div>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-x" width="28" height="28" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
-            </svg>
+            <TwitterLogoIcon width={30} height={30} />
           </div>
           <p className="my-4 text-gray-500 dark:text-gray-300">
             Haz click aquí para ir al convertidor de divisas y empezar a agilizar tus transacciones.
