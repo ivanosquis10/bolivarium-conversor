@@ -1,10 +1,16 @@
 
-# Bolivarium-conversor
+# Bolivarium Conversor🚀
 
-Aplicación web encargada de hacer conversiones de dólares a bolívares y viceversa. Además de poder ver las diferentes tasas que hay en el país.
+Stay up-to-date with the latest currency exchange rates! With our web application, you can convert dollars to bolivars and vice versa in seconds. You can also see the different rates that exist in the country, so you can make the best financial decisions.
 
-Con toda la información más reciente y fresca posible :)
+## Installation
 
+Install my-project with pnpm
+
+```bash
+  pnpm install my-project
+  cd my-project
+```
 
 ## Tech Stack
 
@@ -20,12 +26,12 @@ Con toda la información más reciente y fresca posible :)
 
 ## FAQ
 
-#### ¿Que API uso?
+#### What API do I use?
 
-La maravillosa persona que creo esta API para poder consumir la data viene del repositorio:
+The wonderful person who created this API to be able to consume the data comes from the repository:
 [api-pydolarvenezuela](https://github.com/fcoagz/api-pydolarvenezuela)
 
-**denle estrellas**, muy buen proyecto!
+give it stars, very good project!
 
 
 ## License
