@@ -2,7 +2,7 @@ import { HeroCard } from '@/components'
 
 export default function Home() {
   return (
-    <main className='max-w-6xl mx-auto mt-5'>
+    <main className='max-w-6xl mx-auto mt-5 md:h-[78vh]'>
       <div className='px-2 text-center md:px-0'>
         <h1 className='text-2xl font-extrabold text-center uppercase md:text-4xl'>Bienvenido a
           <span className='text-zinc-700 dark:text-zinc-300'> Bolivarium</span>

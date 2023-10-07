@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 import './globals.css'
 
-import { Header, ThemeProvider } from '@/components'
+import { Footer, Header, ThemeProvider } from '@/components'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             <Header />
             {children}
+            <Footer />
           </ThemeProvider>
       </body>
     </html>
