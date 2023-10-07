@@ -24,7 +24,6 @@ export const ButtonNav = ({ href, title }: Props) => {
         href={href}
         target='_blank'
         rel='noopener noreferrer'
-        title={`${title} creator of bolivarium`}
       >
         <Button variant='ghost' size='icon' className='transition-all hover:scale-110'>
           {icon[title]}
