@@ -2,21 +2,21 @@ import { create } from 'zustand'
 import type { Expression } from '@/interfaces'
 
 interface State {
-  tasa: number
-  cantidad: number
+  tasa: number | string
+  cantidad: number | string
   result: { conversion: string | number, currency: Expression }
   tab: Expression
   getResult: (cantidad: string | number, tasa: string | number) => void
-  getTasa: (tasa: number) => void
-  getCantidad: (tasa: number) => void
+  getTasa: (tasa: string | number) => void
+  getCantidad: (tasa: string | number) => void
   setTab: (data: Expression) => void
   resetResult: () => void
   resetFields: () => void
 }
 
 export const useAppStore = create<State>()((set, get) => ({
-  tasa: 0,
-  cantidad: 0,
+  tasa: '',
+  cantidad: '',
   result: {
     conversion: '',
     currency: 'usd'
@@ -58,8 +58,8 @@ export const useAppStore = create<State>()((set, get) => ({
   },
   resetFields: () => {
     set((state) => ({
-      tasa: 0,
-      cantidad: 0
+      tasa: '',
+      cantidad: ''
     }))
   },
   getTasa: (tasa) => {

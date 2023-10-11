@@ -32,7 +32,7 @@ export function SectionTabs() {
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (cantidad <= 0 || tasa <= 0) {
+    if (Number(cantidad) <= 0 || Number(tasa) <= 0) {
       return alert('Por favor, ingresa una cantidad valida')
     }
 
@@ -56,27 +56,25 @@ export function SectionTabs() {
           <form onSubmit={submitHandler}>
             <CardContent className="space-y-2">
               <div className="space-y-1">
-                <Label htmlFor="tasa">Seleciona tu tasa:</Label>
+                <Label htmlFor="tasa-bolivar">Seleciona tu tasa:</Label>
                 <Input
                   type='number'
-                  id="tasa"
-                  defaultValue={tasa}
+                  id="tasa-bolivar"
+                  // defaultValue={tasa}
                   value={tasa}
-                  onChange={(e) => geTasa(Number(e.target.value))}
+                  onChange={(e) => geTasa(e.target.value)}
                   placeholder='Escoge o escribe la tasa a convertir'
-                  // min={1}
                 />
               </div>
               <div className="space-y-1">
-                <Label htmlFor="cantidad">Cantidad en Bolívares:</Label>
+                <Label htmlFor="cantidad-bolivar">Cantidad en Bolívares:</Label>
                 <Input
                   type='number'
-                  id="cantidad"
-                  defaultValue={cantidad}
+                  id="cantidad-bolivar"
+                  // defaultValue={cantidad}
                   value={cantidad}
-                  onChange={(e) => getCantidad(Number(e.target.value))}
+                  onChange={(e) => getCantidad(e.target.value)}
                   placeholder='Ingresa tu cantidad en bs'
-                  // min={1}
                 />
               </div>
             </CardContent>
@@ -89,7 +87,7 @@ export function SectionTabs() {
         </Card>
       </TabsContent>
 
-      <TabsContent value="usd" className='' >
+      <TabsContent value='usd'>
         <Card className='dark:bg-zinc-800/30'>
           <CardHeader>
             <CardTitle>Convierte de Dólares a Bolívares</CardTitle>
@@ -100,28 +98,27 @@ export function SectionTabs() {
           <form onSubmit={submitHandler}>
             <CardContent className="space-y-2">
               <div className="space-y-1">
-                <Label htmlFor="tasa">Seleciona tu tasa:</Label>
+                <Label htmlFor="tasa-dolar">Seleciona tu tasa:</Label>
                 <Input
                   type='number'
-                  id="tasa"
-                  defaultValue={tasa}
+                  id="tasa-dolar"
+                  // defaultValue={tasa}
                   value={tasa}
-                  onChange={(e) => geTasa(Number(e.target.value))}
+                  onChange={(e) => geTasa(e.target.value)}
                   placeholder='Escoge o escribe la tasa a convertir'
-                  // min={1}
 
                 />
               </div>
               <div className="space-y-1">
-                <Label htmlFor="cantidad">Cantidad en Dolares:</Label>
+                <Label htmlFor="cantidad-dolar">Cantidad en Dolares:</Label>
                 <Input
                   type='number'
-                  id="cantidad"
-                  defaultValue={cantidad}
+                  id="cantidad-dolar"
+                  // defaultValue={cantidad}
                   value={cantidad}
-                  onChange={(e) => getCantidad(Number(e.target.value))}
+                  // value={amount}
+                  onChange={(e) => getCantidad(e.target.value)}
                   placeholder='Ingresa tu cantidad en USD'
-                  // min={1}
                 />
               </div>
             </CardContent>
