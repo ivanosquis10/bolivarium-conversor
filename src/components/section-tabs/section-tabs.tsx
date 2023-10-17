@@ -1,5 +1,5 @@
 'use client'
-
+import toast from 'react-hot-toast'
 import { useAppStore } from '@/store/appStore'
 import { Button } from '@/components/ui/button'
 import {
@@ -28,15 +28,21 @@ export function SectionTabs() {
   const getCantidad = useAppStore((state) => state.getCantidad)
   const geTasa = useAppStore((state) => state.getTasa)
   const resetFields = useAppStore((state) => state.resetFields)
+  const resetResults = useAppStore((state) => state.resetResult)
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (Number(cantidad) <= 0 || Number(tasa) <= 0) {
-      return alert('Por favor, ingresa una cantidad valida')
+      return toast.error('Por favor, ingresa una cantidad valida')
     }
 
     return getResult(cantidad, tasa)
+  }
+
+  const handleResets = () => {
+    resetFields()
+    resetResults()
   }
 
   return (
@@ -80,7 +86,7 @@ export function SectionTabs() {
             </CardContent>
             <CardFooter className='flex items-center justify-between'>
               <Button type='submit' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm'>Convertir cantidad</Button>
-              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={resetFields}>Limpiar campos</Button>
+              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={handleResets}>Limpiar todo</Button>
 
             </CardFooter>
           </form>
@@ -124,7 +130,7 @@ export function SectionTabs() {
             </CardContent>
             <CardFooter className='flex items-center justify-between'>
               <Button type='submit' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm'>Convertir cantidad</Button>
-              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={resetFields}>Limpiar campos</Button>
+              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={handleResets}>Limpiar todo</Button>
             </CardFooter>
           </form>
         </Card>
