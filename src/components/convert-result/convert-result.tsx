@@ -3,8 +3,7 @@ import { useAppStore } from '@/store/appStore'
 import { formatMoney } from '@/lib/utils'
 import {
   Card,
-  CardContent,
-  CardFooter
+  CardContent
 } from '@/components/ui/card'
 import { Button } from '../ui/button'
 import { CopyIcon } from '@radix-ui/react-icons'
