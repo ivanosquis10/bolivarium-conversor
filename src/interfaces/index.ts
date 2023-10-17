@@ -20,8 +20,13 @@ export type Information = {
   title: string
 }
 
-/*
-  si es us -> dolares a bolivares
-  si es bs -> bolivares a dolares
-*/
-export type Expression = 'usd' | 'bs'
+export type Expression = 'USD' | 'VES'
+
+export type HistoryItem = {
+  id: string
+  tasa: number | string
+  amount: number | string
+  conversion: number
+  currency: Expression
+  date: number
+}
