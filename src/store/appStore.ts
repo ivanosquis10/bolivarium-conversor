@@ -1,10 +1,10 @@
 import { create } from 'zustand'
+import { useHistoryStore } from './HistoryStore'
 import type { Expression } from '@/interfaces'
-
-interface State {
+interface StateApp {
   tasa: number | string
   cantidad: number | string
-  result: { conversion: string | number, currency: Expression }
+  result: { conversion: number, currency: Expression }
   tab: Expression
   getResult: (cantidad: string | number, tasa: string | number) => void
   getTasa: (tasa: string | number) => void
@@ -14,35 +14,46 @@ interface State {
   resetFields: () => void
 }
 
-export const useAppStore = create<State>()((set, get) => ({
+export const useAppStore = create<StateApp>()((set, get) => ({
   tasa: '',
   cantidad: '',
   result: {
-    conversion: '',
-    currency: 'usd'
+    conversion: 0,
+    currency: 'USD'
   },
-  tab: 'bs',
+  tab: 'VES',
   getResult: (cantidad, tasa) => {
     const tab = get().tab
+    const addHistory = useHistoryStore.getState().addHistory
 
-    if (tab === 'bs') {
+    if (tab === 'VES') {
       const resultConversion = Number(cantidad) / Number(tasa)
-      return set({
+      set({
         result: {
           conversion: resultConversion,
-          currency: 'usd'
+          currency: 'USD'
         }
       })
+      return addHistory(
+        tasa,
+        cantidad,
+        get().result
+      )
     }
 
-    if (tab === 'usd') {
+    if (tab === 'USD') {
       const resultConversion = Number(tasa) * Number(cantidad)
-      return set({
+      set({
         result: {
           conversion: resultConversion,
-          currency: 'bs'
+          currency: 'VES'
         }
       })
+      return addHistory(
+        tasa,
+        cantidad,
+        get().result
+      )
     }
   },
   setTab: (data) => {
@@ -51,8 +62,8 @@ export const useAppStore = create<State>()((set, get) => ({
   resetResult: () => {
     set((state) => ({
       result: {
-        conversion: '',
-        currency: 'usd'
+        conversion: 0,
+        currency: 'USD'
       }
     }))
   },

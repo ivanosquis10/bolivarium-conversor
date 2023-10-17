@@ -42,10 +42,10 @@ export function SectionTabs() {
   return (
     <Tabs defaultValue={tab} className="w-full" onValueChange={(data) => setTab(data as Expression)}>
       <TabsList className="grid w-full grid-cols-2 bg-zinc-200 dark:bg-zinc-800">
-        <TabsTrigger value="bs">Bolivares a USD</TabsTrigger>
-        <TabsTrigger value="usd">USD a Bolivares</TabsTrigger>
+        <TabsTrigger value="VES">Bolivares a USD</TabsTrigger>
+        <TabsTrigger value="USD">USD a Bolivares</TabsTrigger>
       </TabsList>
-      <TabsContent value="bs" className='' >
+      <TabsContent value="VES">
         <Card className='dark:bg-zinc-800/30'>
           <CardHeader>
             <CardTitle>Convierte de Bolivares a Dolares</CardTitle>
@@ -87,7 +87,7 @@ export function SectionTabs() {
         </Card>
       </TabsContent>
 
-      <TabsContent value='usd'>
+      <TabsContent value='USD'>
         <Card className='dark:bg-zinc-800/30'>
           <CardHeader>
             <CardTitle>Convierte de Dólares a Bolívares</CardTitle>

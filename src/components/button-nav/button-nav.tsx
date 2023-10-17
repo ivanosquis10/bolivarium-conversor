@@ -25,7 +25,7 @@ export const ButtonNav = ({ href, title }: Props) => {
         target='_blank'
         rel='noopener noreferrer'
       >
-        <Button variant='ghost' size='icon' className='transition-all hover:scale-110'>
+        <Button variant='ghost' size='icon' className=''>
           {icon[title]}
           <span className='sr-only'>{`${title} logo`}</span>
         </Button>
