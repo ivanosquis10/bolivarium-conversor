@@ -13,7 +13,6 @@ const CURRENCY_USD = 'USD' as const
 
 export const ConvertResult = () => {
   const result = useAppStore((state) => state.result)
-  const tasa = useAppStore((state) => state.tasa)
   const copyResult = useAppStore((state) => state.copyResult)
 
   if (result.conversion === 0) {
@@ -31,7 +30,7 @@ export const ConvertResult = () => {
                 : `${formatMoney(result.conversion, CURRENCY_USD)} Doláres`
             }
           </p>
-          <p className='text-sm md:text-base text-foreground/80'>Tasa utilizada: <span className='font-bold text-foreground'>{tasa}</span></p>
+          <p className='text-sm md:text-base text-foreground/80'>Tasa utilizada: <span className='font-bold text-foreground'>{result.tasa}</span></p>
         </div>
         <p className="text-xs text-muted-foreground">
           Este resultado es aproximado, puede variar dependiendo de la tasa que se use.
