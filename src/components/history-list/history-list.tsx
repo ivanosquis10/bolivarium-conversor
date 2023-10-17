@@ -27,7 +27,7 @@ export const HistoryList = () => {
           ))}
         </div>
         <SheetFooter>
-          <Button type="button" onClick={resetHistory} className='mt-2'>Eliminar todo!</Button>
+          <Button type="button" disabled={history.length <= 0} onClick={resetHistory} className='mt-2 disabled:opacity-30'>Eliminar todo!</Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>
