@@ -30,7 +30,9 @@ export const HistoryCard = ({ onDelete, history }: Props) => {
           </p>
           </div>
           <p className='flex-1 px-1 text-sm border-b dark:text-zinc-300'>
-            Cantidad: <span className='text-base font-semibold text-foreground dark:text-zinc-100'>{formatMoney(Number(amount), currency)}</span>
+            Cantidad: <span className='text-base font-semibold text-foreground dark:text-zinc-100'>
+              {currency === 'USD' ? `${formatMoney(Number(amount), 'VES')}` : formatMoney(Number(amount), 'USD') }
+            </span>
           </p>
             <div className='flex items-center gap-1'>
             <p className='flex-1 px-1 text-sm dark:text-zinc-300'>

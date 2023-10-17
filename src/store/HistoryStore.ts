@@ -15,19 +15,6 @@ export const useHistoryStore = create<HistoryState>()(persist((set, get) => {
     history: [],
     addHistory: (tasa, cantidad, result) => {
       const { conversion, currency } = result
-      const history = get().history // obtenemos el historial para poder comprobar
-
-      //  validamos que el historial tenga algo, en caso de que no, lo agregará directamente
-      if (history.length > 0) {
-        // obtenemos el último elemento del historial
-        const lastHistory = get().history[get().history.length - 1]
-
-        // validamos si la conversion es la misma que la anterior, en caso de que si, no lo agregará
-        if (lastHistory.conversion === conversion) {
-          alert('Al parecer estás haciendo la misma conversión que la anterior. Prueba con otra.')
-          return
-        }
-      }
 
       // agregamos el nuevo elemento al historial
       const newHistory: HistoryItem = {
