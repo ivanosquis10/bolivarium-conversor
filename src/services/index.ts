@@ -5,8 +5,9 @@ export type Result = {
 }
 
 export const getFullData = async () => {
+  const BASE_URL = 'https://pydolarvenezuela-api.vercel.app' as const
   try {
-    const response = await fetch(`${process.env.API_URL}/api/v1/dollar/`, {
+    const response = await fetch(`${BASE_URL}/api/v1/dollar/`, {
       next: {
         revalidate: 3000
       },
