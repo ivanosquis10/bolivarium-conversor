@@ -30,3 +30,13 @@ export type HistoryItem = {
   currency: Expression
   date: number
 }
+
+export type Type = 'monitor' | 'bank'
+
+export type Monitor = {
+  last_update: string
+  price: number
+  price_old: number
+  title: string
+  type: Type
+}

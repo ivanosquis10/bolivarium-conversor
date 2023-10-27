@@ -10,29 +10,23 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const data = await getFullData()
-
-  // aqui va itera y transforma la data en un array valido con la informacion de la api
-  const monitors = Object.entries(data.monitors).map(([, value]) => ({
-    ...value
-  }))
-
   return (
     <section className='px-4 mx-auto my-5 max-w-7xl md:px-2 lg:px-0'>
       <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
         <div className='p-2 space-y-2 overflow-y-auto border rounded dark:border-zinc-800 h-[320px] lg:h-[550px]'>
-          {monitors.map((monitor, index) => (
+          {data.map((monitor, index) => (
               <MonitorCard
-                key={index}
+                key={monitor.title}
                 monitor={monitor}
               />
           ))}
         </div>
 
           <div className='flex flex-col gap-5'>
-            <div className=''>
+            <div>
               <ConvertResult />
             </div>
-            <div className=''>
+            <div>
               <SectionTabs />
             </div>
         </div>

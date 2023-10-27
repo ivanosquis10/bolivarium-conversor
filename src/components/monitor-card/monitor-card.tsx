@@ -4,7 +4,7 @@ import { useAppStore } from '@/store/appStore'
 
 import { Card, CardTitle, CardDescription } from '../ui/card'
 import { formatMoney } from '@/lib/utils'
-import type { Monitor } from '@/services'
+import type { Monitor } from '@/interfaces'
 
 type Props = {
   monitor: Monitor
@@ -14,8 +14,7 @@ export const MonitorCard = ({ monitor }: Props) => {
   const getTasa = useAppStore((state) => state.getTasa)
   return (
     <Card className='p-2 transition-all cursor-pointer ring-2 ring-transparent hover:ring-rose-500'
-      onClick={() => getTasa(monitor.price) }
-    >
+      onClick={() => getTasa(monitor.price)}>
       <CardTitle>
         {monitor.title}
       </CardTitle>

@@ -1,28 +1,29 @@
-const BASE_URL = 'https://pydolarvenezuela-api.vercel.app'
+import type { Monitor } from '@/interfaces'
 
 export type Result = {
   monitors: Record<string, Monitor>
 }
 
-export type Monitor = {
-  last_update: string
-  price: number
-  price_old: number
-  title: string
-  type: Type
-}
-
-export type Type = 'monitor' | 'bank'
-
 export const getFullData = async () => {
-  // TODO: revisar el revalidate (puede que no funcione)
-  const response = await fetch(`${BASE_URL}/api/v1/dollar/`, {
-    next: {
-      revalidate: 3200
-    }
-  })
-  const data = await response.json()
-  return data as Result
+  try {
+    const response = await fetch(`${process.env.API_URL}/api/v1/dollar/`, {
+      next: {
+        revalidate: 3000
+      },
+      cache: 'no-store'
+    })
+    const data = await response.json() as Result
+
+    // aqui va itera y transforma la data en un array valido con la informacion de la api
+    const monitors = Object.entries(data.monitors).map(([, value]) => ({
+      ...value
+    }))
+
+    return monitors
+  } catch (error) {
+    console.log(error)
+    throw new Error('Failed to fetch data')
+  }
 }
 
 /*
