@@ -1,0 +1,32 @@
+{
+    "theme_color": "#302929",
+    "background_color": "#070707",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Bolivarium Conversor",
+    "short_name": "Bolivarium",
+    "description": "El portal de las divisas donde podr\u00e1s ver la informaci\u00f3n del d\u00f3lar en Venezuela de una forma estructurada y precisa, adem\u00e1s de poder usar el convertidor para hacer conversiones de bol\u00edvares a d\u00f3lares y viceversa",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
