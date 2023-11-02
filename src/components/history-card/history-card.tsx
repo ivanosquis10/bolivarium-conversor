@@ -1,8 +1,9 @@
 import { Card } from '../ui/card'
-import { calculateDate, formatMoney } from '@/lib/utils'
-import { type HistoryItem } from '@/interfaces'
 import { Button } from '../ui/button'
 import { TrashIcon } from '@radix-ui/react-icons'
+
+import { calculateDate, formatMoney } from '@/lib/utils'
+import { type HistoryItem } from '@/interfaces'
 
 type Props = {
   history: HistoryItem
