@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-indexed-object-style */
 import type { ReactElement } from 'react'
 import Link from 'next/link'
 
@@ -9,9 +8,7 @@ type Props = {
   href: string
   title: string
 }
-type Icon = {
-  [key: string]: ReactElement
-}
+type Icon = Record<string, ReactElement>
 
 export const ButtonNav = ({ href, title }: Props) => {
   const icon: Icon = {

@@ -40,3 +40,9 @@ export type Monitor = {
   title: string
   type: Type
 }
+
+export type FAQuestions = {
+  id: number
+  question: string
+  answer: string
+}

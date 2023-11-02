@@ -1,11 +1,12 @@
+export * from './theme-provider/theme-provider'
+
 export * from './header/header'
 export * from './footer/footer'
-
-export * from './theme-provider/theme-provider'
 
 export * from './hero-card/hero-card'
 export * from './convert-result/convert-result'
 export * from './monitor-card/monitor-card'
+export * from './faq/faq'
 
 export * from './history-list/history-list'
 

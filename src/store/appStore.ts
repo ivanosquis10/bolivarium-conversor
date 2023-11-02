@@ -51,61 +51,12 @@ export const useAppStore = create<StateApp>()((set, get) => ({
       }
     })
     return addHistory(tasa, cantidad, get().result)
-    // if (currentTab === 'VES') {
-    //   const resultConversion = cantidadNumber / tasaNumber
-    //   const result = resultConversion.toFixed(2)
-
-    //   // tenemos que validar que al agregar un nuevo elemento al historial, no sea el mismo que el anterior
-    //   if (history.length > 0) {
-    //     if (lastHistory.conversion === Number(result)) {
-    //       alert('Al parecer estás haciendo la misma conversión que la anterior. Prueba con otra. App')
-    //       return
-    //     }
-    //   }
-
-    //   set({
-    //     result: {
-    //       conversion: Number(result),
-    //       currency: 'USD'
-    //     }
-    //   })
-
-    //   return addHistory(
-    //     tasa,
-    //     cantidad,
-    //     get().result
-    //   )
-    // }
-
-    // if (currentTab === 'USD') {
-    //   const resultConversion = tasaNumber * cantidadNumber
-
-    //   if (history.length > 0) {
-    //     if (lastHistory.conversion === Number(resultConversion)) {
-    //       alert('Al parecer estás haciendo la misma conversión que la anterior. Prueba con otra. App')
-    //       return
-    //     }
-    //   }
-
-    //   set({
-    //     result: {
-    //       conversion: resultConversion,
-    //       currency: 'VES'
-    //     }
-    //   })
-
-    //   return addHistory(
-    //     tasa,
-    //     cantidad,
-    //     get().result
-    //   )
-    // }
   },
   setTab: (data) => {
-    set((state) => ({ tab: data }))
+    set(() => ({ tab: data }))
   },
   resetResult: () => {
-    set((state) => ({
+    set(() => ({
       result: {
         conversion: 0,
         currency: 'USD'
@@ -113,16 +64,16 @@ export const useAppStore = create<StateApp>()((set, get) => ({
     }))
   },
   resetFields: () => {
-    set((state) => ({
+    set(() => ({
       tasa: '',
       cantidad: ''
     }))
   },
   getTasa: (tasa) => {
-    set((state) => ({ tasa }))
+    set(() => ({ tasa }))
   },
   getCantidad: (cantidad) => {
-    set((state) => ({ cantidad }))
+    set(() => ({ cantidad }))
   },
   copyResult: () => {
     const result = get().result.conversion
