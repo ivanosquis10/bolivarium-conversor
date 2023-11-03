@@ -5,7 +5,7 @@ import type { Expression } from '@/interfaces'
 interface StateApp {
   tasa: number | string
   cantidad: number | string
-  result: { conversion: number, currency: Expression }
+  result: { conversion: number, currency: Expression, tasa: number }
   tab: Expression
   getResult: (cantidad: string | number, tasa: string | number) => void
   getTasa: (tasa: string | number) => void
@@ -21,7 +21,8 @@ export const useAppStore = create<StateApp>()((set, get) => ({
   cantidad: '',
   result: {
     conversion: 0,
-    currency: 'USD'
+    currency: 'USD',
+    tasa: 0
   },
   tab: 'VES',
   getResult: (cantidad, tasa) => {
@@ -47,7 +48,8 @@ export const useAppStore = create<StateApp>()((set, get) => ({
     set({
       result: {
         conversion: currentTab === 'VES' ? resultConversion : resultConversion,
-        currency: targetCurrency
+        currency: targetCurrency,
+        tasa: Number(tasa)
       }
     })
     return addHistory(tasa, cantidad, get().result)
@@ -59,7 +61,8 @@ export const useAppStore = create<StateApp>()((set, get) => ({
     set(() => ({
       result: {
         conversion: 0,
-        currency: 'USD'
+        currency: 'USD',
+        tasa: 0
       }
     }))
   },
