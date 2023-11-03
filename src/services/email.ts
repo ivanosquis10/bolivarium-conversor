@@ -12,12 +12,6 @@ type Props = {
 
 export const sendContactMessage = async ({ name, email, message }: Props) => {
   try {
-    console.log(
-      PUBLIC_KEY,
-      TEMPLATE_ID,
-      SERVICE_ID
-    )
-
     const data = await send(SERVICE_ID, TEMPLATE_ID, {
       user_name: name,
       message,
