@@ -18,12 +18,16 @@ type Fields = {
 }
 
 export const ContactForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<Fields>()
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<Fields>()
   const { showNotification } = useNotification()
 
   const handlerSubmit: SubmitHandler<Fields> = async ({ name, email, message }) => {
     const res = await sendContactMessage({ name, email, message })
-    if (res?.status === 200) return showNotification('Mensaje enviado!', 'default')
+    if (res?.status === 200) {
+      showNotification('Mensaje enviado!', 'default')
+    }
+
+    reset()
   }
 
   return (
@@ -45,9 +49,10 @@ export const ContactForm = () => {
         {((errors.message?.message) != null) && <Error message={errors.message.message} />}
       </div>
 
-      <Button className='font-bold'>
-        Enviarme mensaje
-      </Button>
+        <Button className='font-bold'>
+          Enviarme mensaje
+        </Button>
+
     </form>
   )
 }
