@@ -49,7 +49,7 @@ export const ContactForm = () => {
         {((errors.message?.message) != null) && <Error message={errors.message.message} />}
       </div>
 
-        <Button className='font-bold'>
+        <Button className='font-bold' disabled>
           Enviarme mensaje
         </Button>
 
