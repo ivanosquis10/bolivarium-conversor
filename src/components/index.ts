@@ -7,6 +7,7 @@ export * from './hero-card/hero-card'
 export * from './convert-result/convert-result'
 export * from './monitor-card/monitor-card'
 export * from './faq/faq'
+export * from './error-form/error-form'
 
 export * from './history-list/history-list'
 

@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { FAQ } from '@/components'
+import { Button } from '../ui/button'
 
 export const Footer = () => {
   return (
@@ -8,7 +10,14 @@ export const Footer = () => {
           Built by <a href='https://twitter.com/ivanosquis13' target='_blank' rel='noreferrer' className='font-medium underline underline-offset-4'>Iván😻</a>.
           All rights reserved. ©{new Date().getFullYear()}
         </p>
-        <FAQ />
+        <div className='flex items-center gap-2'>
+          <FAQ />
+          <Link href='/contact'>
+            <Button>
+              Contacto
+            </Button>
+          </Link>
+        </div>
       </div>
     </footer>
   )

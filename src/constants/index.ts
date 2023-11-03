@@ -22,3 +22,5 @@ export const QUESTIONS: FAQuestions[] = [
     answer: 'Dado que los cambios son después de la 1PM, es cuando se realizan los cambios. Pero en general, están actualizadas lo más posible.'
   }
 ]
+
+// export const url = process.env.NODE_ENV === 'production' ? process.env.NEXT_PUBLIC_URL as string : 'http://localhost:3000'

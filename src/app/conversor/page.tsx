@@ -1,4 +1,3 @@
-import { Toaster } from 'react-hot-toast'
 import { getFullData } from '@/services'
 import { ConvertResult, SectionTabs, MonitorCard } from '@/components'
 import type { Metadata } from 'next/types'
@@ -31,7 +30,6 @@ export default async function Page() {
             </div>
         </div>
       </div>
-      <Toaster position='top-right' />
     </section>
   )
 }
