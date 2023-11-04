@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet'
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger, SheetClose, SheetFooter } from '../ui/sheet'
 import { Button } from '../ui/button'
 import { QUESTIONS } from '@/constants'
 
@@ -33,6 +33,11 @@ export const FAQ = () => {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+        <SheetFooter>
+          <SheetClose asChild>
+            <Button>Cerrar</Button>
+          </SheetClose>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   )

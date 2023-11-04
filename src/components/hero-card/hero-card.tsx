@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { Button } from '../ui/button'
+import { ButtonLink } from '@/components'
 import { Card } from '../ui/card'
 import { TwitterLogoIcon, HeartIcon, ChatBubbleIcon, LoopIcon } from '@radix-ui/react-icons'
 
@@ -25,11 +24,11 @@ export const HeroCard = () => {
           <p className="my-4 text-gray-500 dark:text-gray-300">
             Haz click aquí para ir al convertidor de divisas y empezar a agilizar tus transacciones.
           </p>
-          <Link href='/conversor'>
-            <Button>
-              Convertidor
-            </Button>
-          </Link>
+
+          <ButtonLink href='/conversor' className='font-bold'>
+            Conversor
+          </ButtonLink>
+
           <div className="flex items-center justify-between mt-6">
             <div className="flex space-x-4 text-gray-400 dark:text-gray-300">
               <div className="flex items-center">
