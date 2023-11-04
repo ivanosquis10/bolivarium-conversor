@@ -8,7 +8,7 @@ import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { Button } from '../ui/button'
 import { Textarea } from '../ui/textarea'
-import { Error } from '@/components'
+import { ButtonLink, Error } from '@/components'
 import { validateName, validateEmail, validateMessage } from '@/validate-form'
 
 type Fields = {
@@ -49,9 +49,14 @@ export const ContactForm = () => {
         {((errors.message?.message) != null) && <Error message={errors.message.message} />}
       </div>
 
-        <Button className='font-bold'>
+      <div className='flex items-center gap-2'>
+        <Button type='submit' className='font-bold flex-1'>
           Enviarme mensaje
         </Button>
+        <ButtonLink href='/conversor' variant='link' className='border border-muted-foreground'>
+          Ir al Conversor
+        </ButtonLink>
+      </div>
 
     </form>
   )
