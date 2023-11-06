@@ -12,14 +12,16 @@ type Props = {
 
 export const MonitorCard = ({ monitor }: Props) => {
   const getTasa = useAppStore((state) => state.getTasa)
+  const { title, price, last_update: lastUpdate } = monitor
   return (
     <Card className='p-2 transition-all cursor-pointer ring-2 ring-transparent hover:ring-rose-500'
-      onClick={() => getTasa(monitor.price)}>
+      onClick={() => getTasa(price)}>
       <CardTitle>
-        {monitor.title}
+        {title}
       </CardTitle>
-      <CardDescription>
-        {formatMoney(monitor.price, 'USD')}
+      <CardDescription className='flex justify-between items-center mt-1'>
+        {formatMoney(price, 'USD')}
+        <span className='text-xs'>{lastUpdate}</span>
       </CardDescription>
     </Card>
   )

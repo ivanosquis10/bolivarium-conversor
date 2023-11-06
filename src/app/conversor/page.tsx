@@ -1,6 +1,6 @@
-import { getFullData } from '@/services'
-import { ConvertResult, SectionTabs, MonitorCard } from '@/components'
 import type { Metadata } from 'next/types'
+import { getAllRates } from '@/services/rates'
+import { ConvertResult, SectionTabs, MonitorCard } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Bolivarium | Conversor',
@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const data = await getFullData()
+  const data = await getAllRates()
   return (
     <section className='px-4 mx-auto my-5 max-w-7xl md:px-2 lg:px-0'>
       <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
         <div className='p-2 space-y-2 overflow-y-auto border rounded dark:border-zinc-800 h-[320px] lg:h-[550px]'>
-          {data.map((monitor, index) => (
+          {data.map((monitor) => (
               <MonitorCard
                 key={monitor.title}
                 monitor={monitor}
