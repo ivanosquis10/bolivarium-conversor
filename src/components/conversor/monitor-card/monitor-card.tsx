@@ -1,7 +1,6 @@
 'use client'
 
 import { useAppStore } from '@/store/appStore'
-
 import { Card, CardTitle, CardDescription } from '../../ui/card'
 import { formatMoney } from '@/lib/utils'
 import type { Monitor } from '@/interfaces'
