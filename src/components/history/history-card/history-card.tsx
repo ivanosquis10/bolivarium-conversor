@@ -1,5 +1,5 @@
-import { Card } from '../ui/card'
-import { Button } from '../ui/button'
+import { Card } from '../../ui/card'
+import { Button } from '../../ui/button'
 import { TrashIcon } from '@radix-ui/react-icons'
 
 import { calculateDate, formatMoney } from '@/lib/utils'

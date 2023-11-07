@@ -1,9 +1,9 @@
 'use client'
 
 import { useHistoryStore } from '@/store/HistoryStore'
-import { HistoryCard } from '../history-card/history-card'
-import { Button } from '../ui/button'
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet'
+import { HistoryCard } from '@/components/history/history-card/history-card'
+import { Button } from '../../ui/button'
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '../../ui/sheet'
 
 export const HistoryList = () => {
   const history = useHistoryStore(state => state.history)

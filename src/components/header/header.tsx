@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { ToggleButton } from '../ui/toggle-button'
-import { ButtonNav } from '../button-nav/button-nav'
-import { HistoryList } from '..'
+import { ButtonNav, HistoryList } from '@/components'
 
 export const Header = () => {
   return (
