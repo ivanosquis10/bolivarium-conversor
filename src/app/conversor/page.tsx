@@ -1,6 +1,6 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next/types'
-import { getAllRates } from '@/services/rates'
-import { ConvertResult, SectionTabs, MonitorCard } from '@/components'
+import { ConvertResult, MonitorSkeleton, MonitorWrapper, SectionTabs } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Bolivarium | Conversor',
@@ -8,26 +8,20 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const data = await getAllRates()
   return (
     <section className='px-4 mx-auto my-5 max-w-7xl md:px-2 lg:px-0'>
       <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
-        <div className='p-2 space-y-2 overflow-y-auto border rounded dark:border-zinc-800 h-[320px] lg:h-[550px]'>
-          {data.map((monitor) => (
-              <MonitorCard
-                key={monitor.title}
-                monitor={monitor}
-              />
-          ))}
-        </div>
+          <Suspense fallback={<MonitorSkeleton />}>
+              <MonitorWrapper />
+          </Suspense>
 
           <div className='flex flex-col gap-5'>
             <div>
               <ConvertResult />
             </div>
-            <div>
+          <div>
               <SectionTabs />
-            </div>
+          </div>
         </div>
       </div>
     </section>
