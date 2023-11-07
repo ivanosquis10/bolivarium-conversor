@@ -4,7 +4,7 @@ import { ConvertResult, MonitorSkeleton, MonitorWrapper, SectionTabs } from '@/c
 
 export const metadata: Metadata = {
   title: 'Bolivarium | Conversor',
-  description: 'El portal de las divisas donde podrás ver la información del dólar en Venezuela de una forma estructurada y precisa, además de poder usar el convertidor para hacer conversiones de bolívares a dólares y viceversa.'
+  description: 'El portal de las divisas donde podrás ver la información del dólar en Venezuela de una forma estructurada, precisa y amigable, además de poder usar el convertidor para hacer conversiones de bolívares a dólares y viceversa.'
 }
 
 export default async function Page() {
