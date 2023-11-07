@@ -7,6 +7,8 @@ export type Result = {
 export const getAllRates = async () => {
   const BASE_URL = 'https://pydolarvenezuela-api.vercel.app' as const
   try {
+    // await new Promise((resolve) => setTimeout(resolve, 5000)) // sleep five seconds
+
     const response = await fetch(`${BASE_URL}/api/v1/dollar/`, {
       // next: { revalidate: 3000 },
       cache: 'no-store'
