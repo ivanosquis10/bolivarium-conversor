@@ -24,7 +24,7 @@ export const ButtonNav = ({ href, title }: Props) => {
       >
         <Button variant='ghost' size='icon' className=''>
           {icon[title]}
-          <span className='sr-only'>{`${title} logo`}</span>
+          <span className='sr-only'>{title}</span>
         </Button>
       </Link>
   )

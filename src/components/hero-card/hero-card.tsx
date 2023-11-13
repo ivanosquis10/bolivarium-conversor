@@ -5,6 +5,7 @@ import { TwitterLogoIcon, HeartIcon, ChatBubbleIcon, LoopIcon } from '@radix-ui/
 export const HeroCard = () => {
   return (
     <Card
+      data-testid="hero-card"
       className="w-[500px] mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3"
     >
       <div className="md:flex">

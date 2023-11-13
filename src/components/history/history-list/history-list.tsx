@@ -14,7 +14,7 @@ export const HistoryList = () => {
       <SheetTrigger asChild>
         <Button variant="outline">Historial</Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent data-testid="history-list">
         <SheetHeader>
           <SheetTitle>Historial de las conversiones</SheetTitle>
           <SheetDescription>
