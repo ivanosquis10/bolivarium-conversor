@@ -9,7 +9,7 @@ export const FAQ = () => {
       <SheetTrigger asChild>
         <Button variant="ghost" className='font-bold'>Preguntas</Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent data-testid="faq">
         <SheetHeader>
           <SheetTitle>Preguntas o dudas con Bolivarium</SheetTitle>
           <SheetDescription>
