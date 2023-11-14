@@ -34,18 +34,18 @@ export const ContactForm = () => {
     <form onSubmit={handleSubmit(handlerSubmit)} className='flex flex-col gap-5 py-5'>
       <div>
         <Label>Name</Label>
-        <Input {...register('name', validateName)} placeholder='Lionel Messi...' />
+        <Input className='bg-zinc-900/50' {...register('name', validateName)} placeholder='Lionel Messi...' />
         {((errors.name?.message) != null) && <Error message={errors.name.message} /> }
       </div>
       <div>
         <Label>Email</Label>
-        <Input {...register('email', validateEmail)} placeholder='lionelGOAT@company.bcn' />
+        <Input className='bg-zinc-900/50' {...register('email', validateEmail)} placeholder='lionelGOAT@company.bcn' />
         {((errors.email?.message) != null) && <Error message={errors.email.message} />}
       </div>
 
       <div>
         <Label>Message</Label>
-        <Textarea {...register('message', validateMessage)} className="resize-none" placeholder='Aqui escribe tu duda o sugerencia :)' />
+        <Textarea {...register('message', validateMessage)} className="resize-none bg-zinc-900/50" placeholder='Aqui escribe tu duda o sugerencia :)' />
         {((errors.message?.message) != null) && <Error message={errors.message.message} />}
       </div>
 
