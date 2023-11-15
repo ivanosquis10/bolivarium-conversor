@@ -6,7 +6,7 @@ export const HeroCard = () => {
   return (
     <Card
       data-testid="hero-card"
-      className="w-[500px] mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3"
+      className="w-[500px] mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3 border-2"
     >
       <div className="md:flex">
         <div className="w-full p-8">
