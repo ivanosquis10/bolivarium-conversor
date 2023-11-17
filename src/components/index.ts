@@ -19,3 +19,4 @@ export * from './Shared/skeletons/skeletons'
 export * from './Shared/button-nav/button-nav'
 
 export * from './framer/meteors'
+export * from './framer/spotlight'
