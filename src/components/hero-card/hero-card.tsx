@@ -1,4 +1,4 @@
-import { ButtonLink } from '@/components'
+import { ButtonLink, Meteors } from '@/components'
 import { Card } from '../ui/card'
 import { TwitterLogoIcon, HeartIcon, ChatBubbleIcon, LoopIcon } from '@radix-ui/react-icons'
 
@@ -6,7 +6,7 @@ export const HeroCard = () => {
   return (
     <Card
       data-testid="hero-card"
-      className="w-[500px] mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-md overflow-hidden md:max-w-3xl m-3 border-2"
+      className="w-[500px] mx-auto bg-white dark:bg-zinc-900 rounded-xl shadow-lg overflow-hidden md:max-w-3xl m-3 border-2 relative ring-2 ring-transparent hover:ring-muted hover:scale-105 transition-all"
     >
       <div className="md:flex">
         <div className="w-full p-8">
@@ -48,6 +48,7 @@ export const HeroCard = () => {
           </div>
         </div>
       </div>
+      <Meteors number={15} />
     </Card>
   )
 }
