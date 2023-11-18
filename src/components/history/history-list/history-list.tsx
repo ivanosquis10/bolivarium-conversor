@@ -1,6 +1,6 @@
 'use client'
 
-import { useHistoryStore } from '@/store/HistoryStore'
+import { useHistoryStore, useAppStore } from '@/store'
 import { HistoryCard } from '@/components/history/history-card/history-card'
 import { Button } from '../../ui/button'
 import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '../../ui/sheet'
@@ -9,6 +9,7 @@ export const HistoryList = () => {
   const history = useHistoryStore(state => state.history)
   const resetHistory = useHistoryStore(state => state.resetHistory)
   const deleteOneHistory = useHistoryStore(state => state.deleteOneHistory)
+  const copyResult = useAppStore((state) => state.copyResult)
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -23,7 +24,7 @@ export const HistoryList = () => {
         </SheetHeader>
         <div className="grid gap-4 p-2 overflow-y-scroll max-h-[75svh]">
           {history?.map((item) => (
-            <HistoryCard key={item.id} history={item} onDelete={deleteOneHistory} />
+            <HistoryCard key={item.id} history={item} onDelete={deleteOneHistory} onCopy={copyResult} />
           ))}
         </div>
         <SheetFooter>

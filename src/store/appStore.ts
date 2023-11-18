@@ -13,7 +13,7 @@ interface StateApp {
   setTab: (data: Expression) => void
   resetResult: () => void
   resetFields: () => void
-  copyResult: () => void
+  copyResult: (result: number) => void
 }
 
 export const useAppStore = create<StateApp>()((set, get) => ({
@@ -78,8 +78,7 @@ export const useAppStore = create<StateApp>()((set, get) => ({
   getCantidad: (cantidad) => {
     set(() => ({ cantidad }))
   },
-  copyResult: () => {
-    const result = get().result.conversion
+  copyResult: (result) => {
     // aqui se va a encargar de copiar en el portapapeles el resultado de la conversion
     if (result !== 0) {
       const fixed = result.toFixed(2)

@@ -13,7 +13,7 @@ export const MonitorCard = ({ monitor }: Props) => {
   const getTasa = useAppStore((state) => state.getTasa)
   const { title, price, last_update: lastUpdate } = monitor
   return (
-    <Card className='p-2 transition-all cursor-pointer ring-2 ring-transparent hover:ring-rose-500'
+    <Card className='p-2 transition-all cursor-pointer ring-2 ring-transparent hover:ring-rose-600 dark:bg-zinc-950/50'
       onClick={() => getTasa(price)}>
       <CardTitle>
         {title}

@@ -9,12 +9,8 @@ export default async function Page() {
           </Suspense>
 
           <div className='flex flex-col gap-5'>
-            <div>
               <ConvertResult />
-            </div>
-          <div>
               <SectionTabs />
-          </div>
         </div>
       </div>
     </section>

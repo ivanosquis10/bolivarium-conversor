@@ -1,6 +1,6 @@
 import { Card } from '../../ui/card'
 import { Button } from '../../ui/button'
-import { TrashIcon } from '@radix-ui/react-icons'
+import { TrashIcon, ClipboardCopyIcon } from '@radix-ui/react-icons'
 
 import { calculateDate, formatMoney } from '@/lib/utils'
 import { type HistoryItem } from '@/interfaces'
@@ -8,13 +8,14 @@ import { type HistoryItem } from '@/interfaces'
 type Props = {
   history: HistoryItem
   onDelete: (id: string) => void
+  onCopy: (result: number) => void
 }
 
-export const HistoryCard = ({ onDelete, history }: Props) => {
+export const HistoryCard = ({ history, onDelete, onCopy }: Props) => {
   const { tasa, amount, conversion, currency, date, id } = history
   return (
     <Card
-    className='transition-all border ring-2 ring-transparent hover:ring-rose-500/70'
+    className='transition-all border ring-2 ring-transparent hover:ring-rose-500/70 shadow-xl'
     >
       <div className="p-4 rounded-xl">
         <small className="block mb-1 text-xs font-semibold dark:text-foreground/80">
@@ -39,8 +40,13 @@ export const HistoryCard = ({ onDelete, history }: Props) => {
             <p className='flex-1 px-1 text-sm dark:text-zinc-300'>
               Resultado: <span className='text-base font-semibold text-foreground dark:text-zinc-100'>{formatMoney(conversion, currency)}</span>
             </p>
-            <Button variant='outline' size='icon' className='self-end' onClick={() => onDelete(id)}>
-              <TrashIcon />
+            <Button size='icon' className='self-end shadow' onClick={() => onCopy(conversion)} title='Copiar resultado' >
+              <span className='sr-only'>Copiar</span>
+              <ClipboardCopyIcon className='w-5 h-5' />
+            </Button>
+            <Button variant='outline' size='icon' className='self-end shadow' onClick={() => onDelete(id)} title='Eliminar elemento'>
+              <span className='sr-only'>Eliminar</span>
+              <TrashIcon className='w-5 h-5' />
             </Button>
             </div>
         </div>
