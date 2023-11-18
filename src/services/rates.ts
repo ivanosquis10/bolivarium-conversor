@@ -4,15 +4,10 @@ export type Result = {
   monitors: Record<string, Monitor>
 }
 
+const BASE_URL = 'https://pydolarvenezuela-api.vercel.app'
 export const getAllRates = async () => {
-  const BASE_URL = 'https://pydolarvenezuela-api.vercel.app' as const
   try {
-    // await new Promise((resolve) => setTimeout(resolve, 5000)) // sleep five seconds
-
-    const response = await fetch(`${BASE_URL}/api/v1/dollar/`, {
-      // next: { revalidate: 3000 },
-      cache: 'no-store'
-    })
+    const response = await fetch(`${BASE_URL}/api/v1/dollar/`, { cache: 'no-store' })
 
     const data = await response.json() as Result
 
@@ -23,7 +18,7 @@ export const getAllRates = async () => {
 
     return monitors
   } catch (error) {
-    console.log(error)
-    throw new Error('Failed to fetch data')
+    console.error('Failed to fetch data:', error)
+    throw new Error('Failed to fetch data. Please try again later.')
   }
 }

@@ -1,6 +1,6 @@
 'use client'
 import toast from 'react-hot-toast'
-import { useAppStore } from '@/store/appStore'
+import { useAppStore } from '@/store'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -47,12 +47,12 @@ export function SectionTabs() {
 
   return (
     <Tabs defaultValue={tab} className="w-full" onValueChange={(data) => setTab(data as Expression)}>
-      <TabsList className="grid w-full grid-cols-2 bg-zinc-200 dark:bg-zinc-800">
+      <TabsList className="grid w-full grid-cols-2 bg-zinc-200 dark:bg-zinc-900">
         <TabsTrigger value="VES">Bolivares a USD</TabsTrigger>
         <TabsTrigger value="USD">USD a Bolivares</TabsTrigger>
       </TabsList>
       <TabsContent value="VES">
-        <Card className='dark:bg-zinc-800/30'>
+        <Card className='dark:bg-zinc-900/50 bg-zinc-100 shadow-xl'>
           <CardHeader>
             <CardTitle>Convierte de Bolivares a Dolares</CardTitle>
             <CardDescription>
@@ -66,10 +66,10 @@ export function SectionTabs() {
                 <Input
                   type='number'
                   id="tasa-bolivar"
-                  // defaultValue={tasa}
                   value={tasa}
                   onChange={(e) => geTasa(e.target.value)}
                   placeholder='Escoge o escribe la tasa a convertir'
+                  className='shadow-md'
                 />
               </div>
               <div className="space-y-1">
@@ -77,10 +77,10 @@ export function SectionTabs() {
                 <Input
                   type='number'
                   id="cantidad-bolivar"
-                  // defaultValue={cantidad}
                   value={cantidad}
                   onChange={(e) => getCantidad(e.target.value)}
                   placeholder='Ingresa tu cantidad en bs'
+                  className='shadow-md'
                 />
               </div>
             </CardContent>
@@ -94,7 +94,7 @@ export function SectionTabs() {
       </TabsContent>
 
       <TabsContent value='USD'>
-        <Card className='dark:bg-zinc-800/30'>
+        <Card className='dark:bg-zinc-900/50 bg-zinc-100 shadow-xl'>
           <CardHeader>
             <CardTitle>Convierte de Dólares a Bolívares</CardTitle>
             <CardDescription>
