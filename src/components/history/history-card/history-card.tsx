@@ -15,7 +15,8 @@ export const HistoryCard = ({ history, onDelete, onCopy }: Props) => {
   const { tasa, amount, conversion, currency, date, id } = history
   return (
     <Card
-    className='transition-all border ring-2 ring-transparent hover:ring-rose-500/70 shadow-xl'
+      data-testid={`history-card-${history.id}`}
+      className='transition-all border ring-2 ring-transparent hover:ring-rose-500/70 shadow-xl'
     >
       <div className="p-4 rounded-xl">
         <small className="block mb-1 text-xs font-semibold dark:text-foreground/80">
