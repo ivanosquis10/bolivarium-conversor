@@ -110,6 +110,17 @@ module.exports = {
           '100%': {
             opacity: '1'
           }
+        },
+        jump: {
+          '0%': {
+            transform: 'scale(0%)'
+          },
+          '80%': {
+            transform: 'scale(105%)'
+          },
+          '100%': {
+            transform: 'scale(100%)'
+          }
         }
       },
       animation: {
@@ -119,7 +130,8 @@ module.exports = {
         'fade-right': 'fade-right 0.8s ease-out',
         'fade-up': 'fade-up 1s ease-out',
         'fade-down': 'fade-down 0.5s ease-out',
-        fade: 'fade 1.5s ease-out'
+        fade: 'fade 1.5s ease-out',
+        jump: 'jump .5s both'
       }
 
     }

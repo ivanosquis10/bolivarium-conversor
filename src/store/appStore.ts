@@ -7,6 +7,7 @@ interface StateApp {
   cantidad: number | string
   result: { conversion: number, currency: Expression, tasa: number }
   tab: Expression
+  favorite: boolean
   getResult: (cantidad: string | number, tasa: string | number) => void
   getTasa: (tasa: string | number) => void
   getCantidad: (tasa: string | number) => void
@@ -14,6 +15,7 @@ interface StateApp {
   resetResult: () => void
   resetFields: () => void
   copyResult: (result: number) => void
+  setFavorite: () => void
 }
 
 export const useAppStore = create<StateApp>()((set, get) => ({
@@ -25,6 +27,7 @@ export const useAppStore = create<StateApp>()((set, get) => ({
     tasa: 0
   },
   tab: 'VES',
+  favorite: false,
   getResult: (cantidad, tasa) => {
     const currentTab = get().tab
     const addHistory = useHistoryStore.getState().addHistory
@@ -52,6 +55,7 @@ export const useAppStore = create<StateApp>()((set, get) => ({
         tasa: Number(tasa)
       }
     })
+
     return addHistory(tasa, cantidad, get().result)
   },
   setTab: (data) => {
@@ -85,5 +89,8 @@ export const useAppStore = create<StateApp>()((set, get) => ({
       navigator.clipboard.writeText(fixed.toString())
       return toast.success('Copiado al portapapeles')
     }
+  },
+  setFavorite: () => {
+    set((state) => ({ favorite: !state.favorite }))
   }
 }))
