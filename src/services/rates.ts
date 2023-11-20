@@ -1,24 +1,61 @@
+import { favoritesRates } from '@/constants'
 import type { Monitor } from '@/interfaces'
 
 export type Result = {
   monitors: Record<string, Monitor>
 }
 
+type ErrorApi = {
+  status: number
+  statusText: string
+}
+
+type ApiResponse = {
+  success: true
+  monitors: Monitor[]
+} | {
+  success: false
+  error: ErrorApi
+}
+
 const BASE_URL = 'https://pydolarvenezuela-api.vercel.app'
-export const getAllRates = async () => {
+export const getAllRates = async (): Promise<ApiResponse> => {
   try {
     const response = await fetch(`${BASE_URL}/api/v1/dollar/`, { cache: 'no-store' })
 
-    const data = await response.json() as Result
+    if (!response.ok) {
+      return {
+        success: false,
+        error: {
+          status: response.status,
+          statusText: response.statusText
+        }
+      }
+    }
 
-    // aqui va itera y transforma la data en un array valido con la informacion de la api
-    const monitors = Object.entries(data.monitors).map(([, value]) => ({
-      ...value
+    const data = await response.json() as Result // esta respuesta viene en Objetos
+    const monitors = Object.values(data.monitors)
+
+    // Iteramos sobre el resultado y agregamos una propiedad "favorite", que dependiendo del array con los favoritos, se le agregara true o false
+    const monitorsReal = monitors.map((monitor) => ({
+      ...monitor,
+      favorite: favoritesRates.includes(monitor.title)
     }))
+    // luego ordenamos que los favoritos esten hasta arriba del todo
+    const sortedMonitors = monitorsReal.sort((a, b) => a.favorite === b.favorite ? 0 : a.favorite ? -1 : 1)
 
-    return monitors
+    return {
+      success: true,
+      monitors: sortedMonitors
+    }
   } catch (error) {
     console.error('Failed to fetch data:', error)
-    throw new Error('Failed to fetch data. Please try again later.')
+    return {
+      success: false,
+      error: {
+        status: 500,
+        statusText: 'Internal Server Error'
+      }
+    }
   }
 }

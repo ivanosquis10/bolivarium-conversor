@@ -22,7 +22,7 @@ export const ConvertResult = () => {
   }
 
   return (
-      <Card className='overflow-hidden relative border shadow-lg bg-zinc-200/95 dark:border-zinc-900 hover:ring-zinc-200 dark:bg-zinc-900/50 md:mb-0'>
+      <Card className='animate-jump overflow-hidden relative shadow-xl bg-zinc-100 border-4 dark:bg-zinc-900 md:mb-0 '>
         <CardContent className='mt-3 space-y-2 z-50'>
           <div className='flex flex-col md:flex-row md:items-center md:justify-between'>
             <p className="text-2xl font-bold dark:text-zinc-200">
