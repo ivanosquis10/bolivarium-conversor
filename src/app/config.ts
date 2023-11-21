@@ -16,3 +16,8 @@ export const config = {
     locale: 'en-US'
   }
 }
+
+export const umami = {
+  src: 'https://umami-bolivarium.vercel.app/script.js',
+  website_id: process.env.NEXT_PUBLIC_DATA_ID ?? ''
+}
