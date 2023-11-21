@@ -1,5 +1,5 @@
 import './globals.css'
-import { Analytics } from '@vercel/analytics/react'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
@@ -56,8 +56,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <Toaster position='top-right' />
           </ThemeProvider>
-          <Analytics />
       </body>
+      <Script
+        async
+        src={process.env.NEXT_PUBLIC_WEBSITE}
+        data-website-id={process.env.NEXT_PUBLIC_DATA_ID}
+      />
     </html>
   )
 }
