@@ -52,11 +52,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             disableTransitionOnChange
           >
             <Header />
-            {children}
-            <Analytics />
+              {children}
             <Footer />
             <Toaster position='top-right' />
           </ThemeProvider>
+          <Analytics />
       </body>
     </html>
   )
