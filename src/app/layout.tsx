@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
 
 import { Footer, Header, ThemeProvider } from '@/components'
-import { config } from '@/app/config'
+import { config, umami } from '@/app/config'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -59,8 +59,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
       <Script
         async
-        src={process.env.NEXT_PUBLIC_WEBSITE}
-        data-website-id={process.env.NEXT_PUBLIC_DATA_ID}
+        src={umami.src}
+        data-website-id={umami.website_id}
       />
     </html>
   )
