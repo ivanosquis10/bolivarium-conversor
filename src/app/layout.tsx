@@ -1,13 +1,11 @@
 import './globals.css'
 import Script from 'next/script'
-import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
 
 import { Footer, Header, ThemeProvider } from '@/components'
 import { config, umami } from '@/app/config'
-
-const inter = Inter({ subsets: ['latin'] })
+import { onest } from '@/fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.meta.siteUrl),
@@ -44,7 +42,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} overflow-x-hidden relative scroll-smooth min-h-screen`}>
+      <body className={`${onest.className} overflow-x-hidden relative scroll-smooth min-h-screen`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
