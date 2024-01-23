@@ -20,5 +20,5 @@ export * from './Shared/custom-button/custom-button'
 export * from './Shared/skeletons/skeletons'
 export * from './Shared/button-nav/button-nav'
 
-export * from './framer/meteors'
-export * from './framer/spotlight'
+export * from './effects/meteors'
+export * from './effects/spotlight'
