@@ -46,7 +46,7 @@ export function SectionTabs() {
   }
 
   return (
-    <Tabs defaultValue={tab} className="w-full" onValueChange={(data) => setTab(data as Expression)}>
+    <Tabs data-testid="tabs-conversor" defaultValue={tab} className="w-full" onValueChange={(data) => setTab(data as Expression)}>
       <TabsList className="grid w-full grid-cols-2 bg-zinc-200 dark:bg-zinc-900">
         <TabsTrigger value="VES">Bolivares a USD</TabsTrigger>
         <TabsTrigger value="USD">USD a Bolivares</TabsTrigger>

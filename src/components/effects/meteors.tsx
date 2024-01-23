@@ -1,3 +1,4 @@
+'use client'
 import clsx from 'clsx'
 
 export const Meteors = ({ number = 20 }: { number?: number }) => {
