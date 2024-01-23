@@ -74,7 +74,10 @@ describe('HistoryList component', () => {
     expect(screen.queryByTestId('history-card-1')).not.toBeInTheDocument()
 
     // y esperamos que el texto de 'No hay conversiones' aparezca
-    expect(screen.getByText('No hay historial todavía:)')).toBeInTheDocument()
+    expect(screen.getByText('Historial Vacío')).toBeInTheDocument()
+
+    // junto a la ilustracion
+    expect(screen.getByTitle('No Data')).toBeInTheDocument()
   })
 })
 
