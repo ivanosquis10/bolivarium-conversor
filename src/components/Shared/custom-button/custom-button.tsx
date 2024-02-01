@@ -4,12 +4,12 @@ import { DoubleArrowRightIcon, DoubleArrowLeftIcon, CopyIcon } from "@radix-ui/r
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-interface Props {
+interface ButtomProps {
   children?: React.ReactNode
   className?: string
 }
 
-interface ButtonLinkProps extends Props {
+interface ButtonLinkProps extends ButtomProps {
   href: string
   variant?:
     | "link"
@@ -33,11 +33,11 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({ children, href, variant,
   )
 }
 
-export const ButtonDefault: React.FC<Props> = ({ children }) => {
+export const ButtonDefault: React.FC<ButtomProps> = ({ children }) => {
   return <Button className="w-full font-bold capitalize">{children}</Button>
 }
 
-export const ButtonWithIcon: React.FC<Props> = ({ children }) => {
+export const ButtonWithIcon: React.FC<ButtomProps> = ({ children }) => {
   return (
     <Button className="w-full">
       {children}
@@ -46,7 +46,7 @@ export const ButtonWithIcon: React.FC<Props> = ({ children }) => {
   )
 }
 
-export const ButtonBack: React.FC<Props> = ({ children, className }) => {
+export const ButtonBack: React.FC<ButtomProps> = ({ children, className }) => {
   return (
     <Button className={cn("w-fit", className)}>
       <DoubleArrowLeftIcon className="mr-2 h-5 w-5" />
