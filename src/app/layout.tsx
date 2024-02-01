@@ -1,5 +1,5 @@
 import "./globals.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/react"
@@ -8,6 +8,12 @@ import { Toaster } from "react-hot-toast"
 import { Footer, Header, ThemeProvider } from "@/components"
 import { config, umami } from "@/app/config"
 import { onest } from "@/fonts"
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.meta.siteUrl),
@@ -38,7 +44,6 @@ export const metadata: Metadata = {
       url: config.author.website,
     },
   ],
-  viewport: "width=device-width, initial-scale=1",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
