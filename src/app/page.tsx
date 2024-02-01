@@ -1,9 +1,10 @@
-import { HeroCard, Spotlight } from '@/components'
+import { HeroCard, Spotlight } from "@/components"
+import { Hero } from "@/components/hero/hero"
 
 export default function Home() {
   return (
-    <main className='max-w-6xl mx-auto mt-5 md:h-[78vh] relative'>
-      <div className='px-2 text-center md:px-0 animate-fade-right'>
+    <main className="">
+      {/* <div className='px-2 text-center md:px-0 animate-fade-right'>
         <h1 role='heading' className='text-2xl font-extrabold text-center uppercase md:text-4xl'>Bienvenido a
           <span className='text-zinc-700 dark:text-zinc-300'> Bolivarium</span>
         </h1>
@@ -12,7 +13,8 @@ export default function Home() {
 
       <Spotlight title='hero-container' className="flex justify-center w-full mt-10 relative animate-fade">
         <HeroCard />
-      </Spotlight>
+      </Spotlight> */}
+      <Hero />
     </main>
   )
 }

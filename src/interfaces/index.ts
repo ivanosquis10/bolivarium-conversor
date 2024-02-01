@@ -20,7 +20,7 @@ export type Information = {
   title: string
 }
 
-export type Expression = 'USD' | 'VES'
+export type Expression = "USD" | "VES"
 
 export type HistoryItem = {
   id: string
@@ -31,7 +31,7 @@ export type HistoryItem = {
   date: number
 }
 
-export type Type = 'monitor' | 'bank'
+export type Type = "monitor" | "bank"
 
 export type Monitor = {
   last_update: string

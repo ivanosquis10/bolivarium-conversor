@@ -1,9 +1,9 @@
-'use client' // Error components must be Client Components
+"use client" // Error components must be Client Components
 
-import { useEffect } from 'react'
+import { useEffect } from "react"
 
 export default function Error({
-  error
+  error,
 }: {
   error: Error & { digest?: string }
   reset: () => void
@@ -14,9 +14,9 @@ export default function Error({
   }, [error])
 
   return (
-    <div className='p-2 space-y-2 overflow-y-auto border rounded dark:border-zinc-800 h-[470px] dark:bg-zinc-900/70 bg-zinc-200 shadow-md text-center'>
-      <h4 className='text-2xl lg:text-4xl font-bold'>Algo ha salido mal!</h4>
-      <p className='text-sm lg:text-base font-semibold tracking-wider'>
+    <div className="h-[470px] space-y-2 overflow-y-auto rounded border bg-zinc-200 p-2 text-center shadow-md dark:border-zinc-800 dark:bg-zinc-900/70">
+      <h4 className="text-2xl font-bold lg:text-4xl">Algo ha salido mal!xd</h4>
+      <p className="text-sm font-semibold tracking-wider lg:text-base">
         por favor, espere unos segundos y recargue la página
       </p>
     </div>
