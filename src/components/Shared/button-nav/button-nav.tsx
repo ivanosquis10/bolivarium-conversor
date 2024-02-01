@@ -1,8 +1,9 @@
-import type { ReactElement } from 'react'
-import Link from 'next/link'
+import type { ReactElement } from "react"
 
-import { Button } from '@/components/ui/button'
-import { TwitterLogoIcon, GitHubLogoIcon } from '@radix-ui/react-icons'
+import Link from "next/link"
+import { TwitterLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
+
+import { Button } from "@/components/ui/button"
 
 type Props = {
   href: string
@@ -10,22 +11,18 @@ type Props = {
 }
 type Icon = Record<string, ReactElement>
 
-export const ButtonNav = ({ href, title }: Props) => {
+export function ButtonNav({ href, title }: Props) {
   const icon: Icon = {
-    github: <GitHubLogoIcon width={25} height={25} />,
-    twitter: <TwitterLogoIcon width={25} height={25} />
+    github: <GitHubLogoIcon height={25} width={25} />,
+    twitter: <TwitterLogoIcon height={25} width={25} />,
   }
 
   return (
-      <Link
-        href={href}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <Button variant='ghost' size='icon' className=''>
-          {icon[title]}
-          <span className='sr-only'>{title}</span>
-        </Button>
-      </Link>
+    <Link href={href} rel="noopener noreferrer" target="_blank">
+      <Button className="" size="icon" variant="ghost">
+        {icon[title]}
+        <span className="sr-only">{title}</span>
+      </Button>
+    </Link>
   )
 }

@@ -1,2 +1,3 @@
-export * from './HistoryStore'
-export * from './appStore'
+export * from "./HistoryStore"
+
+export * from "./appStore"

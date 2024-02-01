@@ -1,29 +1,25 @@
-import Link from 'next/link'
-import { ToggleButton } from '../ui/toggle-button'
-import { ButtonNav, HistoryList } from '@/components'
+import Link from "next/link"
 
-export const Header = () => {
+import { ButtonNav, HistoryList } from "@/components"
+
+import { ToggleButton } from "../ui/toggle-button"
+
+export function Header() {
   return (
-    <header data-testid="header" className='border-b dark:bg-zinc-800/50 dark:border-zinc-700'>
-      <nav className='flex items-center justify-between px-5 py-2 mx-auto max-w-7xl md:px-0'>
-        <Link href="/" className="flex items-end gap-1">
-          <img src="/logo.jpeg" className="rounded w-11 h-11" alt="logo de bolivarium" />
+    <header className="border-b dark:border-zinc-700 dark:bg-zinc-800/50" data-testid="header">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-2 md:px-0">
+        <Link className="flex items-end gap-1" href="/">
+          <img alt="logo de bolivarium" className="h-11 w-11 rounded" src="/logo.jpeg" />
         </Link>
-        <ul className='flex items-center justify-between gap-2'>
+        <ul className="flex items-center justify-between gap-2">
           <li>
-           <HistoryList />
+            <HistoryList />
           </li>
           <li>
-            <ButtonNav
-              title='github'
-              href='https://github.com/ivanosquis10/bolivarium-conversor'
-            />
+            <ButtonNav href="https://github.com/ivanosquis10/bolivarium-conversor" title="github" />
           </li>
           <li>
-            <ButtonNav
-              title='twitter'
-              href='https://twitter.com/ivanosquis13'
-            />
+            <ButtonNav href="https://twitter.com/ivanosquis13" title="twitter" />
           </li>
           <li>
             <ToggleButton />

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-'use client'
+"use client"
 
-import { useRef, useState, useEffect } from 'react'
-import { useMousePosition } from '@/hooks/useMouse'
+import { useRef, useState, useEffect } from "react"
+
+import { useMousePosition } from "@/hooks/useMouse"
 
 type SpotlightProps = {
   children: React.ReactNode
@@ -10,27 +11,24 @@ type SpotlightProps = {
   className?: string
 }
 
-export function Spotlight({
-  children,
-  title,
-  className = ''
-}: SpotlightProps) {
+export function Spotlight({ children, title, className = "" }: SpotlightProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mousePosition = useMousePosition()
-  const mouse = useRef<{ x: number, y: number }>({ x: 0, y: 0 })
-  const containerSize = useRef<{ w: number, h: number }>({ w: 0, h: 0 })
+  const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
+  const containerSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 })
   const [boxes, setBoxes] = useState<HTMLElement[]>([])
 
   useEffect(() => {
-    containerRef.current && setBoxes(Array.from(containerRef.current.children).map((el) => el as HTMLElement))
+    containerRef.current &&
+      setBoxes(Array.from(containerRef.current.children).map((el) => el as HTMLElement))
   }, [])
 
   useEffect(() => {
     initContainer()
-    window.addEventListener('resize', initContainer)
+    window.addEventListener("resize", initContainer)
 
     return () => {
-      window.removeEventListener('resize', initContainer)
+      window.removeEventListener("resize", initContainer)
     }
   }, [setBoxes])
 
@@ -52,21 +50,25 @@ export function Spotlight({
       const x = mousePosition.x - rect.left
       const y = mousePosition.y - rect.top
       const inside = x < w && x > 0 && y < h && y > 0
+
       if (inside) {
         mouse.current.x = x
         mouse.current.y = y
         boxes.forEach((box) => {
           const boxX = -(box.getBoundingClientRect().left - rect.left) + mouse.current.x
           const boxY = -(box.getBoundingClientRect().top - rect.top) + mouse.current.y
-          box.style.setProperty('--mouse-x', `${boxX}px`)
-          box.style.setProperty('--mouse-y', `${boxY}px`)
+
+          box.style.setProperty("--mouse-x", `${boxX}px`)
+          box.style.setProperty("--mouse-y", `${boxY}px`)
         })
       }
     }
   }
 
   return (
-    <section title={title} className={className} ref={containerRef}>{children}</section>
+    <section ref={containerRef} className={className} title={title}>
+      {children}
+    </section>
   )
 }
 

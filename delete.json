@@ -39,6 +39,6 @@
         "@typescript-eslint/require-await": "off",
         "@typescript-eslint/no-confusing-void-expression": "off",
         "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/triple-slash-reference": "off",
+        "@typescript-eslint/triple-slash-reference": "off"
     }
 }

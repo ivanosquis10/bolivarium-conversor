@@ -1,24 +1,21 @@
-'use client'
-import toast from 'react-hot-toast'
-import { useAppStore } from '@/store'
-import { Button } from '@/components/ui/button'
+"use client"
+import type { Expression } from "@/interfaces"
+
+import toast from "react-hot-toast"
+
+import { useAppStore } from "@/store"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger
-} from '@/components/ui/tabs'
-import type { Expression } from '@/interfaces'
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function SectionTabs() {
   const { setTab, tab, getResult } = useAppStore()
@@ -34,7 +31,7 @@ export function SectionTabs() {
     e.preventDefault()
 
     if (Number(cantidad) <= 0 || Number(tasa) <= 0) {
-      return toast.error('Por favor, ingresa una cantidad valida')
+      return toast.error("Por favor, ingresa una cantidad valida")
     }
 
     return getResult(cantidad, tasa)
@@ -46,13 +43,18 @@ export function SectionTabs() {
   }
 
   return (
-    <Tabs data-testid="tabs-conversor" defaultValue={tab} className="w-full" onValueChange={(data) => setTab(data as Expression)}>
+    <Tabs
+      className="w-full"
+      data-testid="tabs-conversor"
+      defaultValue={tab}
+      onValueChange={(data) => setTab(data as Expression)}
+    >
       <TabsList className="grid w-full grid-cols-2 bg-zinc-200 dark:bg-zinc-900">
         <TabsTrigger value="VES">Bolivares a USD</TabsTrigger>
         <TabsTrigger value="USD">USD a Bolivares</TabsTrigger>
       </TabsList>
       <TabsContent value="VES">
-        <Card className='dark:bg-zinc-900/50 bg-zinc-100 shadow-xl'>
+        <Card className="bg-zinc-100 shadow-xl dark:bg-zinc-900/50">
           <CardHeader>
             <CardTitle>Convierte de Bolivares a Dolares</CardTitle>
             <CardDescription>
@@ -64,37 +66,45 @@ export function SectionTabs() {
               <div className="space-y-1">
                 <Label htmlFor="tasa-bolivar">Seleciona tu tasa:</Label>
                 <Input
-                  type='number'
+                  className="shadow-md"
                   id="tasa-bolivar"
+                  placeholder="Escoge o escribe la tasa a convertir"
+                  type="number"
                   value={tasa}
                   onChange={(e) => geTasa(e.target.value)}
-                  placeholder='Escoge o escribe la tasa a convertir'
-                  className='shadow-md'
                 />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="cantidad-bolivar">Cantidad en Bolívares:</Label>
                 <Input
-                  type='number'
+                  className="shadow-md"
                   id="cantidad-bolivar"
+                  placeholder="Ingresa tu cantidad en bs"
+                  type="number"
                   value={cantidad}
                   onChange={(e) => getCantidad(e.target.value)}
-                  placeholder='Ingresa tu cantidad en bs'
-                  className='shadow-md'
                 />
               </div>
             </CardContent>
-            <CardFooter className='flex items-center justify-between'>
-              <Button type='submit' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm'>Convertir cantidad</Button>
-              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={handleResets}>Limpiar todo</Button>
-
+            <CardFooter className="flex items-center justify-between">
+              <Button className="lg:h-9 lg:px-4 lg:py-2 lg:text-sm" size="sm" type="submit">
+                Convertir cantidad
+              </Button>
+              <Button
+                className="lg:h-9 lg:px-4 lg:py-2 lg:text-sm"
+                size="sm"
+                type="button"
+                onClick={handleResets}
+              >
+                Limpiar todo
+              </Button>
             </CardFooter>
           </form>
         </Card>
       </TabsContent>
 
-      <TabsContent value='USD'>
-        <Card className='dark:bg-zinc-900/50 bg-zinc-100 shadow-xl'>
+      <TabsContent value="USD">
+        <Card className="bg-zinc-100 shadow-xl dark:bg-zinc-900/50">
           <CardHeader>
             <CardTitle>Convierte de Dólares a Bolívares</CardTitle>
             <CardDescription>
@@ -106,31 +116,39 @@ export function SectionTabs() {
               <div className="space-y-1">
                 <Label htmlFor="tasa-dolar">Seleciona tu tasa:</Label>
                 <Input
+                  placeholder='Escoge o escribe la tasa a convertir'
                   type='number'
+                  onChange={(e) => geTasa(e.target.value)}
                   id="tasa-dolar"
                   // defaultValue={tasa}
                   value={tasa}
-                  onChange={(e) => geTasa(e.target.value)}
-                  placeholder='Escoge o escribe la tasa a convertir'
-
                 />
               </div>
               <div className="space-y-1">
                 <Label htmlFor="cantidad-dolar">Cantidad en Dolares:</Label>
                 <Input
-                  type='number'
+                  placeholder='Ingresa tu cantidad en USD'
                   id="cantidad-dolar"
                   // defaultValue={cantidad}
                   value={cantidad}
+                  type='number'
                   // value={amount}
                   onChange={(e) => getCantidad(e.target.value)}
-                  placeholder='Ingresa tu cantidad en USD'
                 />
               </div>
             </CardContent>
-            <CardFooter className='flex items-center justify-between'>
-              <Button type='submit' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm'>Convertir cantidad</Button>
-              <Button type='button' size={'sm'} className='lg:h-9 lg:px-4 lg:py-2 lg:text-sm' onClick={handleResets}>Limpiar todo</Button>
+            <CardFooter className="flex items-center justify-between">
+              <Button className="lg:h-9 lg:px-4 lg:py-2 lg:text-sm" size="sm" type="submit">
+                Convertir cantidad
+              </Button>
+              <Button
+                className="lg:h-9 lg:px-4 lg:py-2 lg:text-sm"
+                size="sm"
+                type="button"
+                onClick={handleResets}
+              >
+                Limpiar todo
+              </Button>
             </CardFooter>
           </form>
         </Card>
