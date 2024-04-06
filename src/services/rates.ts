@@ -27,10 +27,8 @@ export const getAllRates = async (): Promise<ApiResponse> => {
   try {
     const response = await fetch(`${BASE_URL}/api/v1/dollar`, {
       cache: "no-store",
-    });
-    console.clear();
-    console.log(response.ok);
-
+    }); 
+    
     if (!response.ok) {
       return {
         success: false,
