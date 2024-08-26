@@ -21,7 +21,7 @@ type ApiResponse =
       error: ErrorApi;
     };
 
-const BASE_URL = "https://pydolarvenezuela-api.vercel.app";
+const BASE_URL = "https://pydolarve.org";
 
 export const getAllRates = async (): Promise<ApiResponse> => {
   try {
