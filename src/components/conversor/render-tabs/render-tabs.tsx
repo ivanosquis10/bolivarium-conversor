@@ -71,11 +71,11 @@ export function RenderTabs(currency: string, title: string, placeholder: string)
             </div>
           </CardContent>
           <CardFooter className="flex items-center gap-2">
-            <Button className="text-base lg:h-9 lg:px-4 lg:py-2" size="sm" type="submit">
+            <Button className="text-sm lg:h-9 lg:px-4 lg:py-2 lg:text-base" size="sm" type="submit">
               Convertir
             </Button>
             <Button
-              className="text-base font-bold lg:h-9 lg:px-4 lg:py-2"
+              className="text-sm font-bold lg:h-9 lg:px-4 lg:py-2 lg:text-base"
               size="sm"
               type="button"
               variant="destructive"

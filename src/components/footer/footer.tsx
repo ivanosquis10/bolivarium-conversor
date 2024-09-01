@@ -18,7 +18,7 @@ export function Footer() {
           >
             Iván😻
           </a>
-          . All rights reserved. <span>©{new Date().getFullYear()}</span>
+          <span> ©{new Date().getFullYear()}</span>
         </p>
         <div className="flex items-center gap-2">
           <FAQ />
