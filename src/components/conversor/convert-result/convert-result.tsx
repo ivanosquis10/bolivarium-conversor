@@ -48,7 +48,7 @@ export function ConvertResult() {
           Este resultado es aproximado, puede variar dependiendo de la tasa que se use.
         </p>
         <Button
-          className="flex items-center gap-2 text-base font-bold"
+          className="flex items-center gap-2 text-sm font-bold lg:text-base"
           onClick={() => copyResult(result.conversion)}
         >
           Copiar resultado
