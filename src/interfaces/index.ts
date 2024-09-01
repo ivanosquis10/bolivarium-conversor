@@ -38,6 +38,7 @@ export type Monitor = {
   price: number
   price_old: number
   title: string
+  image: string
   type: Type
   favorite?: boolean
 }
