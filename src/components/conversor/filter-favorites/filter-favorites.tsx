@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useAppStore } from "@/store"
 
-export const FilterFavorites: React.FC = () => {
+export function FilterFavorites() {
   const setFavorite = useAppStore((state) => state.setFavorite)
   const favorite = useAppStore((state) => state.favorite)
 

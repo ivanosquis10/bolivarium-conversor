@@ -1,7 +1,7 @@
 import type { Expression, HistoryItem } from "@/interfaces"
 
 import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { persist, createJSONStorage } from "zustand/middleware"
 
 type HistoryState = {
   history: HistoryItem[]
@@ -17,7 +17,7 @@ type HistoryState = {
 // store of the history
 export const useHistoryStore = create<HistoryState>()(
   persist(
-    (set, get) => {
+    (set) => {
       return {
         history: [],
         addHistory: (tasa, cantidad, result) => {
@@ -44,12 +44,13 @@ export const useHistoryStore = create<HistoryState>()(
         resetHistory: () => {
           const areYouSure = confirm("¿Estás seguro de que quieres borrar el historial?")
 
-          areYouSure && set((state) => ({ history: [] }))
+          areYouSure && set(() => ({ history: [] }))
         },
       }
     },
     {
       name: "history",
+      storage: createJSONStorage(() => sessionStorage),
     },
   ),
 )
