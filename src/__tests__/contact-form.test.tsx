@@ -75,7 +75,7 @@ describe("Contact Form Component", () => {
     const conversorButton = screen.getByRole("link", { name: "Ir al Conversor" })
 
     expect(conversorButton).toBeInTheDocument()
-    expect(conversorButton).toHaveAttribute("href", "/conversor")
+    expect(conversorButton).toHaveAttribute("href", "/")
   })
 
   it.each([

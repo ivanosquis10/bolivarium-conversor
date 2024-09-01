@@ -17,17 +17,18 @@ describe("Form Tabs", () => {
   })
 
   it("Renderiza correctamente los botones (tabs) y que tengan el atributo de aria-selected", () => {
-    const tabVesToUsd = screen.getByRole("tab", { name: "Bolivares a USD" }) // tab predeterminada
-    const tabUsdToVes = screen.getByRole("tab", { name: "USD a Bolivares" })
+    // const tabVesToUsd = screen.getByRole("tab", { name: "Bolivares a USD" }) // tab predeterminada
+    const tabVesToUsd = screen.getByRole("tab", { name: "Bolívares a USD" }) // tab predeterminada
+    const tabUsdToVes = screen.getByRole("tab", { name: "USD a Bolívares" })
 
     // que esten en el documento
     expect(tabVesToUsd).toBeInTheDocument()
     expect(tabUsdToVes).toBeInTheDocument()
 
-    // que tenga el atributo 'aria-selected' con el valor 'true' -> predeterminada
+    // // que tenga el atributo 'aria-selected' con el valor 'true' -> predeterminada
     expect(tabVesToUsd).toHaveAttribute("aria-selected", "true")
 
-    // // que tengan el atributo 'aria-selected' con el valor 'false'
+    // // // que tengan el atributo 'aria-selected' con el valor 'false'
     expect(tabUsdToVes).toHaveAttribute("aria-selected", "false")
   })
 })
