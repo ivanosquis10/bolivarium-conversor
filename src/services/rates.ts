@@ -29,9 +29,9 @@ export const getAllRates = async (): Promise<ApiResponse> => {
   try {
     const response = await fetch(`${BASE_URL}/api/v1/dollar`, {
       cache: "no-store",
-      // headers: {
-      //   Authorization: `Bearer ${process.env.TOKEN_API}`,
-      // },
+      headers: {
+        Authorization: `Bearer ${process.env.TOKEN_API}`,
+      },
     })
 
     if (!response.ok) {
@@ -45,7 +45,12 @@ export const getAllRates = async (): Promise<ApiResponse> => {
     }
 
     const data = (await response.json()) as Result // esta respuesta viene en Objetos
-    const monitors = Object.values(data.monitors)
+    const monitors = Object.values(data.monitors).map(
+      (monitor) =>
+        monitor.title === "Dólar estadounidense"
+          ? { ...monitor, title: "BCV" } // Renombrar el título
+          : monitor, // Retornar el monitor original si no coincide
+    )
 
     // Iteramos sobre el resultado y agregamos una propiedad "favorite", que dependiendo del array con los favoritos, se le agregara true o false
     const monitorsReal = monitors.map((monitor) => ({
