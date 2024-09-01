@@ -1,13 +1,11 @@
 import "./globals.css"
 import type { Metadata, Viewport } from "next"
 
-import Script from "next/script"
-import { Analytics } from "@vercel/analytics/react"
+import { GeistMono } from "geist/font/mono"
 import { Toaster } from "react-hot-toast"
 
 import { Footer, Header, ThemeProvider } from "@/components"
-import { config, umami } from "@/app/config"
-import { onest } from "@/fonts"
+import { config } from "@/app/config"
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -48,17 +46,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${onest.className} relative min-h-screen overflow-x-hidden scroll-smooth`}>
+    <html lang="es">
+      <body
+        className={`${GeistMono.className} relative min-h-[100svh] overflow-x-hidden scroll-smooth`}
+      >
         <ThemeProvider disableTransitionOnChange enableSystem attribute="class" defaultTheme="dark">
           <Header />
           {children}
-          <Analytics />
           <Footer />
           <Toaster position="top-right" />
         </ThemeProvider>
       </body>
-      <Script async data-website-id={umami.website_id} src={umami.src} />
     </html>
   )
 }

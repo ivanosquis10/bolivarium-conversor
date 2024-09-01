@@ -1,20 +1,33 @@
-import { HeroCard, Spotlight } from "@/components"
-import { Hero } from "@/components/hero/hero"
+import { Suspense } from "react"
+
+import {
+  ConvertResult,
+  MonitorSkeleton,
+  MonitorWrapper,
+  SectionTabs,
+  FilterFavorites,
+} from "@/components"
 
 export default function Home() {
   return (
-    <main className="">
-      {/* <div className='px-2 text-center md:px-0 animate-fade-right'>
-        <h1 role='heading' className='text-2xl font-extrabold text-center uppercase md:text-4xl'>Bienvenido a
-          <span className='text-zinc-700 dark:text-zinc-300'> Bolivarium</span>
-        </h1>
-        <p className='text-sm tracking-tight text-center text-gray-400 md:text-base'>El portal de las divisas donde podrás ver la información del dólar de una forma estructurada y precisa, además de poder usar el convertidor.</p>
-      </div>
+    <main>
+      <section className="container mx-auto my-5 px-4 lg:px-0">
+        <div className="grid gap-5">
+          <div className="relative space-y-2">
+            <FilterFavorites />
+            <Suspense fallback={<MonitorSkeleton />}>
+              <MonitorWrapper />
+            </Suspense>
+          </div>
 
-      <Spotlight title='hero-container' className="flex justify-center w-full mt-10 relative animate-fade">
-        <HeroCard />
-      </Spotlight> */}
-      <Hero />
+          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+            <div className="animate-fade">
+              <SectionTabs />
+            </div>
+            <ConvertResult />
+          </div>
+        </div>
+      </section>
     </main>
   )
 }
