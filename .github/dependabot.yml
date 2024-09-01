@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: 'pnpm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - '📦 Dependencies'
+    commit-message:
+      prefix: 'fix'
+      prefix-development: 'chore'
+      include: 'scope'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    labels:
+      - '📦 Dependencies'
+      - '🚀 CI/CD'
