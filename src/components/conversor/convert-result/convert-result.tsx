@@ -39,12 +39,14 @@ export function ConvertResult() {
     >
       <CardContent className="z-50 mt-3 space-y-5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-          <p className="text-4xl font-bold dark:text-zinc-200">{options[result.currency]()}</p>
+          <p className="text-3xl font-bold -tracking-tighter dark:text-zinc-200 lg:text-4xl">
+            {options[result.currency]()}
+          </p>
           <p className="text-sm text-foreground/80 md:text-base">
             Tasa utilizada: <span className="text-lg font-bold text-foreground">{result.tasa}</span>
           </p>
         </div>
-        <p className="text-base text-muted-foreground">
+        <p className="text-sm text-muted-foreground lg:text-base">
           Este resultado es aproximado, puede variar dependiendo de la tasa que se use.
         </p>
         <Button
