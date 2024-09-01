@@ -83,7 +83,7 @@ export function ContactForm() {
         </Button>
         <ButtonLink
           className="bg-zinc-300 hover:bg-background dark:bg-zinc-900/50"
-          href="/conversor"
+          href="/"
           variant="outline"
         >
           Ir al Conversor

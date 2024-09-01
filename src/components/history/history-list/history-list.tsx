@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { useHistoryStore, useAppStore } from "@/store";
-import { HistoryCard } from "@/components/history/history-card/history-card";
+import { useHistoryStore, useAppStore } from "@/store"
+import { HistoryCard } from "@/components/history/history-card/history-card"
 
-import { Button } from "../../ui/button";
+import { Button } from "../../ui/button"
 import {
   Sheet,
   SheetContent,
@@ -12,13 +12,13 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "../../ui/sheet";
+} from "../../ui/sheet"
 
 export function HistoryList() {
-  const history = useHistoryStore((state) => state.history);
-  const resetHistory = useHistoryStore((state) => state.resetHistory);
-  const deleteOneHistory = useHistoryStore((state) => state.deleteOneHistory);
-  const copyResult = useAppStore((state) => state.copyResult);
+  const history = useHistoryStore((state) => state.history)
+  const resetHistory = useHistoryStore((state) => state.resetHistory)
+  const deleteOneHistory = useHistoryStore((state) => state.deleteOneHistory)
+  const copyResult = useAppStore((state) => state.copyResult)
 
   return (
     <Sheet>
@@ -29,16 +29,13 @@ export function HistoryList() {
         <SheetHeader>
           <SheetTitle>Historial de las conversiones</SheetTitle>
           <SheetDescription>
-            Aquí estarán las conversiones que has hecho, por si quieres volver a
-            verlas :)
+            Aquí estarán las conversiones que has hecho, por si quieres volver a verlas :)
           </SheetDescription>
         </SheetHeader>
         {history.length <= 0 ? (
           <div className="flex items-center justify-center">
             <NoDataIllustration />
-            <p className="text-4xl font-extrabold tracking-tight">
-              Historial Vacío
-            </p>
+            <p className="text-4xl font-extrabold tracking-tight">Historial Vacío</p>
           </div>
         ) : (
           <div className="grid max-h-[75vh] gap-4 overflow-y-scroll p-2">
@@ -64,17 +61,12 @@ export function HistoryList() {
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  );
+  )
 }
 
 function NoDataIllustration() {
   return (
-    <svg
-      height="200"
-      viewBox="0 0 656 458.68642"
-      width="200"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg height="200" viewBox="0 0 656 458.68642" width="200" xmlns="http://www.w3.org/2000/svg">
       <title>No Data</title>
       <rect fill="#3f3d56" height="2" width="656" y="434.34322" />
       <g>
@@ -86,13 +78,7 @@ function NoDataIllustration() {
           fill="#f50057"
           points="349.16196 249.18644 355.16196 288.18642 443.16196 276.18642 434.66196 230.6195 349.16196 249.18644"
         />
-        <rect
-          fill="#2f2e41"
-          height="37.66125"
-          width="36.38461"
-          x="381.84177"
-          y="30.34218"
-        />
+        <rect fill="#2f2e41" height="37.66125" width="36.38461" x="381.84177" y="30.34218" />
         <polygon
           fill="#ffb6b6"
           points="385.16196 70.18643 394.16196 43.18643 411.70447 43.18643 412.62653 70.18643 385.16196 70.18643"
@@ -173,5 +159,5 @@ function NoDataIllustration() {
         </g>
       </g>
     </svg>
-  );
+  )
 }

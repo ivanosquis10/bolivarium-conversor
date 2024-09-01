@@ -31,6 +31,7 @@ export const useAppStore = create<StateApp>()((set, get) => ({
   tab: "VES",
   favorite: false,
   getResult: (cantidad, tasa) => {
+    // Cada vez que se llame esta funcion, reiniciamos el resultado en caso de que exista
     const currentTab = get().tab
     const addHistory = useHistoryStore.getState().addHistory
     const history = useHistoryStore.getState().history
@@ -47,7 +48,7 @@ export const useAppStore = create<StateApp>()((set, get) => ({
       const isSameConversion = history.some((item) => item.conversion === resultConversion)
 
       if (isSameConversion) {
-        toast.error("Al parecer estás haciendo repitiendo una conversión. Prueba con otra.")
+        toast.error("Al parecer estás haciendo repitiendo una conversión. Ve tu historial")
 
         return
       }
