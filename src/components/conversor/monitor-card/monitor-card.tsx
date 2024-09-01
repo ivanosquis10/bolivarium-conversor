@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 "use client"
 
 import type { Monitor } from "@/interfaces"
 
-import { StarFilledIcon } from "@radix-ui/react-icons"
+import { StarFilledIcon, TargetIcon } from "@radix-ui/react-icons"
 
 import { useAppStore } from "@/store/appStore"
 import { Card, CardTitle, CardDescription, CardHeader } from "@/components/ui/card"
 import { formatMoney } from "@/lib/utils"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 
 type Props = {
   monitor: Monitor
@@ -23,15 +23,27 @@ export function MonitorCard({ monitor }: Props) {
 
   return (
     <Card
-      className={`cursor-pointer p-2 ring-2 ring-transparent transition-all hover:ring-rose-600 dark:bg-zinc-950/50 ${favoriteLogic()}`}
+      className={`cursor-pointer p-2 ring-2 ring-transparent transition-all hover:ring-emerald-400 dark:bg-zinc-950/50 ${favoriteLogic()}`}
       onClick={() => getTasa(price)}
     >
       <CardHeader className="flex flex-row items-center gap-1 space-y-0 p-0">
+        <Avatar className="h-7 w-7">
+          <AvatarImage
+            alt={monitor.title}
+            className="bg-white"
+            height={30}
+            src={monitor.image}
+            width={30}
+          />
+          <AvatarFallback>
+            <TargetIcon height={30} width={30} />
+          </AvatarFallback>
+        </Avatar>
         {favorite ? <StarFilledIcon /> : null}
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-lg">{title}</CardTitle>
       </CardHeader>
       <CardDescription className="mt-1 flex items-center justify-between">
-        {formatMoney(price, "USD")}
+        <span className="text-base">{formatMoney(price, "USD")}</span>
         <span className="text-xs">{lastUpdate}</span>
       </CardDescription>
     </Card>
