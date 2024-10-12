@@ -55,7 +55,7 @@
     "@testing-library/react": "^14.1.0",
     "@types/jest": "^29.5.8",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@vercel/style-guide": "^5.0.1",
+    "@vercel/style-guide": "^6.0.0",
     "eslint": "8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.1.0",
